@@ -1,0 +1,180 @@
+# Step 4: Prioritize
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+require(autoCovariateSelection)
+require(dplyr)
+load(file = "data/dfx.RData")
+step1 <- suppressMessages(get_candidate_covariates(df = dfx,  
+                                  domainVarname = "domain",
+                                  eventCodeVarname = "icd10", 
+                                  patientIdVarname = "idx",
+                                  patientIdVector = patientIds,
+                                  n = 200, 
+                                  min_num_patients = 20))
+out1 <- step1$covars_data
+step2 <- get_recurrence_covariates(df = out1, 
+                                   patientIdVarname = "idx",
+                                   eventCodeVarname = "icd10", 
+                                   patientIdVector = patientIds)
+out2 <- step2$recurrence_data
+```
+
+## Bross formula
+
+We need to make an educated guess about 3 components (i.e., <mark>make an assumption</mark>), that are used in the calculation of <mark>bias contributed by not adjusting for a covariate</mark> based on [Bross (1966)](https://pubmed.ncbi.nlm.nih.gov/5966011/) formula:
+
+::: column-margin
+Bross formula [@bross1966spurious; @schneeweiss2006sensitivity] for the Bias Multiplier considers both the imbalance in the prevalence of the unmeasured confounder between the exposure groups and the association between the confounder and the outcome to assess the potential bias.
+:::
+
+-   prevalence of a binary unmeasured confounder ($U$) among exposed ($P_{UA_1}$)
+-   prevalence of that binary unmeasured confounder among unexposed ($P_{UA_0}$)
+-   association between that binary unmeasured confounder and the outcome ($RR_{UY} = \frac{P_{UY_1}}{P_{UY_1}}$)
+
+The above components can help us calculate $bias$ amount (known as <mark>'Bias Multiplier'</mark>) using the Bross formula when we omit adjusting for $U$:
+
+$$\text{Bias}_U = \frac{P_{UA_1} (RR_{UY} - 1) + 1}{P_{UA_0} (RR_{UY} - 1) + 1}$$
+
+::: column-margin
+These are the ingredients of the Bross formula. This formula is helpful for understanding the impact of unmeasured confounding of a binary variable. We have to put assumed prevalence and risk ratio associated with an unmeasured confounder.
+:::
+
+## Calculating bias from a recurrence covariate
+
+For recurrence covariates ($R$), we do not need to assume, we just <mark>plug-in $R$ instead of $U$</mark> in the following calculations:
+
+-   prevalence of a binary recurrence variable among exposed ($P_{RA_1}$)
+-   prevalence of that binary recurrence variable among unexposed ($P_{RA_0}$)
+-   association between that binary recurrence variable and the outcome ($RR_{RY} = \frac{P_{RY_1}}{P_{RY_1}}$)
+
+These components can help us empirically calculate $bias$ amount:
+
+$$\text{Bias}_R = \frac{P_{RA_1} (RR_{RY} - 1) + 1}{P_{RA_0} (RR_{RY} - 1) + 1}$$
+
+Here, $RR_{RY}$ is the crude risk ratio between the recurrence covariate and the outcome, $Y$ is the outcome, $A$ is the exposure, and $R$ is a recurrence covariate.
+
+::: column-margin
+For recurrence covariates, we do not need to assume, we can basically calculate these numbers ($log-absolute-bias$) for all of the recurrence covariates [@schneeweiss2009high]. For each data dimension, we can rank each of the recurrence covariates based on the amount of bias (confounding or imbalance) it could likely adjust.
+:::
+
+## Calculating bias from all recurrence covariates
+
+In our example, we simply plug-in each recurrence covariates one-by-one to calculate $log-absolute-bias$:
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+var <- c("R=rec_dx_D64_once", "R=rec_dx_D75_sporadic", " ... ", "R=rec_dx_E07_frequent")
+knitr::kable(var, col.names = NULL, row.names = FALSE, 
+             format = "pipe", align = "c")
+```
+
+## Obtain log of absolute-bias
+
+We calculate $log-absolute-bias$ for all recurrence covariates.
+
+::: column-margin
+Absolute log of the Bias Multiplier, $log-absolute-bias$, is a symmetric measure of the potential bias introduced by the recurrence covariate, making it easier to compare and rank recurrence covariates.
+:::
+
+```{r, cache=TRUE}
+out3 <- get_prioritised_covariates(df = out2,
+                                   patientIdVarname = "idx", 
+                                   exposureVector = basetable$exposure,
+                                   outcomeVector = basetable$outcome,
+                                   patientIdVector = patientIds, 
+                                   k = 100)
+```
+
+This would return absolute log of the multiplicative bias for each recurrence covariate (by univariate Bross formula). We can use this information to prioritize recurrence covariates in the next step.
+
+## Convert to Absolute log of multiplicative bias
+
+Here are the few covariates and associated Absolute log of the multiplicative bias:
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+# Sort the values in descending order
+sorted_values <- sort(out3$multiplicative_bias, decreasing = TRUE)
+
+# Determine the number of rows and columns needed for the table
+n <- length(sorted_values)
+num_cols <- 1
+num_rows <- ceiling(n / num_cols)
+
+# Create an empty table
+tbl <- matrix("", nrow = num_rows, ncol = num_cols)
+
+# Fill in the table with the names and values of the top biases
+for (i in 1:n) {
+  row <- ceiling(i / num_cols)
+  col <- i %% num_cols
+  if (col == 0) col <- num_cols
+  tbl[row, col] <- paste(names(sorted_values)[i], ":", round(sorted_values[i], 3))
+}
+
+# Print the table
+colnames(tbl) <- c("")
+#knitr::kable(tbl[1:9,])
+knitr::kable(tbl[1:9,], col.names = NULL, row.names = FALSE, 
+             format = "pipe", align = "c") %>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+```
+
+And here are translated table with description:
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+my_table <- data.frame(
+  col1 = c("Hypertension : 0.115",
+           "Edema : 0.054",
+           "Hypokalemia : 0.015"),
+  col2 = c("Elevated blood glucose level : 0.088",
+           "Pure hypercholesterolemia : 0.038",
+           "Heart disease : 0.013"),
+  col3 = c("Hypertension : 0.068",
+           "musculoskeletal pain : 0.017",
+           "Heart failure : 0.011")
+)
+# print the table
+#knitr::kable(my_table)
+library(tidyr)
+
+# Reshape data into long format
+my_table_long <- pivot_longer(my_table, cols = everything(), 
+                              names_to = "Column", values_to = "Value")
+# Remove column names
+colnames(my_table_long) <- c("", "")
+# Print as a column vector
+knitr::kable(my_table_long[,2], col.names = NULL, row.names = FALSE, 
+             format = "pipe", align = "c")%>%
+  kableExtra::kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
+
+
+```
+
+::: column-margin
+[@choi2001risk]
+:::
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+require(ggplot2)
+df <- data.frame(Value = out3$multiplicative_bias)
+p <- ggplot(df, aes(x=Value)) +
+  geom_density(fill="blue", alpha=0.5) +
+  labs(title="Density Plot",
+       x="Bias multiplier (%)",
+       y="Density")
+
+# Display the plot
+ggsave(filename = "images/histhdps.png", plot = p, width = 6, height = 4, dpi = 300)
+```
+
+::: callout-tip
+# SMD vs Bias multiplier
+
+Standardized mean difference (SMD) is useful for assessing the balance in the propensity score literature. However, Bross formula incorporates outcome information. In the investigation of empirical covariates or recurrence covariates where interpretations of these covariates are unknown, it may seem more safe to use the multiplicative bias term from the Bross formula to identify proxy covariates that are helpful in predicting the outcome.
+:::
+
+::: column-margin
+[@stuart2013prognostic]
+:::

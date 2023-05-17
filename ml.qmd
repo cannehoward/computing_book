@@ -1,0 +1,70 @@
+# Plasmode Simulation
+
+[Franklin et al. 2014](https://pubmed.ncbi.nlm.nih.gov/24587587/): resampling from the observed covariate and exposure data without modification in all simulated datasets to <mark>preserve the associations</mark> among these variables
+
+**Original demographic variables**
+
+```{verbatim}
+age, sex, education, race, marital status, income, born, cycle 
+```
+
+**Original behaviour variables**
+
+```{verbatim}
+smoking, diet, high cholesterol, physical activity, sleep
+```
+
+**Original health history / access variables**
+
+```{verbatim}
+diabetes family history, medical access
+```
+
+**Transformed lab variables** (complex forms)
+
+```{verbatim}
+Tranfored.var.1 = log(globulin)
+Tranfored.var.2 = protein*calcium
+Tranfored.var.3 = diastolicBP/systolicBP)^2
+Tranfored.var.4 = sqrt(uric acid+bilirubin)/2
+Tranfored.var.5 = phosphorus^2/(sodium*potassium)
+Tranfored.var.6 = log(systolicBP+10)
+```
+
+**Count based prescription codes** (proxies of health status)
+
+```{verbatim}
+Simple count = sum of selected ICD-10 CM codes
+```
+
+## Plasmode Simulation
+
+True outcome model
+
+```{verbatim}
+Diabetes (outcome) =  Obese (exposure) + 
+  
+                      demographic/behaviour/health history variables + 
+  
+                      transformed lab variables +
+  
+                      simple count with selected ICD-10 codes
+```
+
+Detailed model:
+
+```{verbatim}
+Diabetes = Obese + 
+            age + gender + education + race + income + born + 
+            diabetes.family.history + high.cholesterol + medical.access + 
+            smoking + diet.healthy + physical.activity + sleep + year  + 
+            tranfored var.1 + var.2 + var.3 + var.4 + var.5 + var.6 +
+            simple count (with log-OR 5 times the original)
+```
+
+-   **Size** of each cohort = 5,000
+-   500 **simulations**/cohort generation
+-   **Outcome** rate = 0.4
+-   **Exposure** prevalence = 0.2
+-   True exposure **Odds ratio** = 1 or **Risk difference** = 0
+

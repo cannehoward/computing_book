@@ -1,0 +1,82 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Application of Computer Technology and Document Processing in Forestry Management"
+  author: "Dr. Suborna Ahmed, Forest Resources Management, UBC"
+  search: true
+  favicon: cover.png
+  image: cover.png
+  page-navigation: true
+  twitter-card: true
+  site-url: https://forestry.ubc.ca/faculty-profile/suborna-ahmed/
+  repo-url: https://github.com/subornaa?tab=repositories
+  repo-actions: [edit]
+  downloads: [pdf, epub]
+  sharing: [twitter, facebook]
+  sidebar:
+    style: docked
+    background: light
+  date: today
+  chapters:
+    - index.qmd
+    - part: motivating.qmd
+      chapters: 
+        - Part1.qmd
+        - Part2.qmd
+    - references.qmd
+    
+
+bibliography: references.bib
+
+highlight-style: pygments
+
+format:
+  html:
+    theme: cosmo
+    cover-image: cover.png
+    df-print: paged
+  pdf:
+    documentclass: scrreprt
+    fig-align: center
+    fig-width: 6
+    fig-height: 5
+    fig-pos: 'h'
+    fig-cap-location: bottom
+    tbl-cap-location: top
+    pdf-engine: lualatex
+    keep-tex: true
+    linestretch: 1.5
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    lof: true
+    lot: true
+    number-sections: true
+    number-depth: 6
+    colorlinks: true
+    cite-method: biblatex
+    csl: apa7.csl
+    callout-appearance: simple
+    callout-icon: true
+    include-in-header: 
+      text: |
+        \usepackage{fancyhdr}
+        \pagestyle{fancy}
+        \fancyhead[C]{Header text}
+        \fancyfoot[L]{Footer text}
+        \usepackage{tikz}
+        \usepackage{pgfplots}
+        \usepackage{mermaid}
+
+knitr:
+  opts_chunk: 
+    collapse: true
+    comment: "#>" 
+    R.options:
+      knitr.graphics.auto_pdf: true
+
+editor: visual
+
+

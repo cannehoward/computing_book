@@ -1,0 +1,77 @@
+# Step 2: Empirical
+
+Based on the merged dataset, we identify which patients were linked in both databases. Using those IDs, we want to sort the list of candidate empirical covariates.
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+require(autoCovariateSelection)
+require(dplyr)
+load(file = "data/dfx.RData")
+```
+
+## Sort by prevalence
+
+Check out the frequency of each codes: Here is the list of top 10:
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+library(dplyr)
+library(knitr)
+library(kableExtra)
+df <- data.frame(
+  icd10 = names(sort(table(dfx$icd10), decreasing = TRUE)),
+  count = sort(table(dfx$icd10), decreasing = TRUE)
+)
+
+# print the table using kable()
+# knitr::kable(df[1:10,-2], col.names = c("ICD10 Code", "Count"), align = c("l", "r"))
+kable(df[1:10,-2], col.names = c("ICD10 Code", "Count"), align = c("l", "r"), caption = "ICD10 Code Frequencies") %>%
+  kable_styling(bootstrap_options =  c("striped", "hover"), full_width = FALSE) %>%
+  row_spec(0, bold = TRUE) %>%
+  column_spec(2, width = "5em")
+```
+
+However, some may be associated with lower counts (e.g., less than 20).
+
+::: callout-tip
+# Restrictions
+
+Candidate empirical covariates list is constrained by
+
+(1) their prevalence of codes. <mark>Only top `n` covariates with highest prevalence</mark> would be chosen.
+(2) analysts absolutely need to get rid of the codes that have <mark>zero variance</mark> (e.g., everyone has the code, or nobody has it).
+(3) codes associated with <mark>very low prevalence</mark> are also numerically problematic for further analyses.
+:::
+
+::: column-margin
+We choose `n = 200` \[for (1)\] as it was proposed in the original algorithm [@schneeweiss2009high]. In reality, this is not necessary to be so restrictive [@schuster2015role]. Parts (2) and (3) are more likely and addressed by the following restriction: At least `min_num_patients` number of patients need to have that code to be selected in the list.
+:::
+
+If there were more dimensions, separate list of candidate empirical covariates would be identified.
+
+## Choose Granularity
+
+One important point here is that we have chosen <mark>granularity to be 3 digits</mark> in the ICD-10 code.
+
+::: column-margin
+We have already truncated the codes at 3 digit level while preparing the data.
+:::
+
+## Retain top n empirical covariates
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE}
+step1 <- suppressMessages(get_candidate_covariates(df = dfx,  
+                                  domainVarname = "domain",
+                                  eventCodeVarname = "icd10", 
+                                  patientIdVarname = "idx",
+                                  patientIdVector = patientIds,
+                                  n = 200, 
+                                  min_num_patients = 20))
+```
+
+::: column-margin
+You can use `autoCovariateSelection` package to implement these restrictions [@autoCovariateSelection].
+:::
+
+```{r, cache=TRUE, echo=FALSE}
+out1 <- step1$covars_data
+head(out1)
+```

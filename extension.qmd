@@ -1,0 +1,24 @@
+# Alternatives
+
+## Issues with hdPS
+
+::: callout-tip
+# Univariate selection of many proxies
+
+-   Recurrent covariates selected separately / <mark>univariately</mark>
+-   can be correlated (coming from same patient) and cause <mark>multicollinearity</mark>
+-   may <mark>inflate variance</mark>
+-   General <mark>overfitting</mark> problem. Too many adjustment variables?
+:::
+
+::: column-margin
+[@franklin2015regularized; @schuster2016propensity; @karim2018can]
+:::
+
+## Potential ways to improve
+
+- Multiple recurrent covariates could provide same information, may not be useful anymore in the presence of others. <mark>Multivariate structure</mark> could be good to consider in a single model.
+- Machine learning <mark>variable selection methods</mark> could be useful to combat multicollinearity.
+- <mark>Sample splitting</mark> methods could be useful in combating overfitting in high dimensions.
+
+

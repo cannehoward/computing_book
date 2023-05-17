@@ -1,0 +1,82 @@
+# Reducing residual confounding
+
+::: callout-tip
+# Pitfall of using observation data
+
+Observational data sources like NHANES <mark>do not allow the user to control which variables are surveyed</mark>. Therefore, may variables necessary for a research questions may not be available.
+:::
+
+## Measuring comorbidity burden
+
+In health research, the **overall health status/ Disease burden** could be a potential confounding factor. In the original DAG, we had comorbidity as a known confounder.
+
+::: {style="text-align:center"}
+```{mermaid}
+flowchart TB
+  A[Obesity] --> Y(Diabete)
+  L[Comorbidity measure unobserved] --> Y
+  L --> A
+  style A fill:#90EE90;
+  style Y fill:#ADD8E6;
+  style L fill:#FF0000;
+```
+:::
+
+1.  **Charlson Comorbidity Index (CCI)** is a measure that quantifies the burden of comorbidities or **pre-existing medical conditions** in patients (takes into account **17** comorbidities), which can impact their health outcomes and overall survival.
+
+2.  **Elixhauser Comorbidity Index (ECI)** is a measure of the burden of comorbidities, based on **30** different comorbid conditions.
+
+3.  **Chronic Disease Score (CDS)** is a weighted score of the number and severity of chronic diseases, calculated using self-reported data on diagnosed conditions (considers the presence of **21** chronic conditions).
+
+::: column-margin
+-   [@charlson1987new; @elixhauser1998comorbidity; @von1992chronic]
+-   NHANES does not include information on all of the comorbidities included in theses scores / indices.
+:::
+
+::: callout-tip
+# Residual confounding
+
+Comorbidity scores are widely used as a measure of comorbidity burden, and their calculation often relies on data that may not be available in certain contexts, such as in NHANES or Canadian health administrative databases. In such cases, when comorbidity burden is a known confounder, researchers may use proxy information to approximate and mimic the information. Not being able to adjust for such variable can introduce bias and residual confounding in the treatment effect estimation.
+:::
+
+::: column-margin
+-   [@schneeweiss2000use; @lix2011performance; @lix2013predictive]
+:::
+
+## Proxy Adjustment Empirical criterion
+
+**Empirical criterion: Modified disjunctive cause criterion**
+
+[VanderWeele et al. 2019](https://doi.org/10.1007/s10654-019-00494-6) European Journal of Epidemiology: [CC BY license](http://creativecommons.org/licenses/by/4.0/)
+
+```{r fig.cap="Hypothesized Directed acyclic graph with comorbidity measure being unmeasured, and approximated by the simple count measures based on the ICD codes", echo=FALSE, out.width="100%", out.height="auto"}
+knitr::include_graphics("images/proxy.png")
+```
+
+::: column-margin
+Adjust for variables that are (a) causes of exposure or outcome or both, (b) discard: known instrument, (c) <mark>including good proxies for unmeasured common causes</mark> [@vanderweele2019principles]
+:::
+
+## Additional information: ICD-10-CM
+
+::: column-margin
+The International Classification of Diseases 10th Revision (ICD-10) is a **standardized system of codes** for the classification of **diseases, disorders, and injuries**.
+:::
+
+| Role                                                                               | Data Source                                                       | Variables considered                                                                              |
+|------------------------|------------------|------------------------------|
+| <mark>Role unclear</mark> as they may not directly relate to the research question | [RXQ_RX](https://wwwn.cdc.gov/nchs/nhanes/2017-2018/RXQ_RX_J.htm) | Prescription medication [ICD-10-CM code](https://www.cdc.gov/nchs/icd/icd10cm_pcs_background.htm) |
+
+::: column-margin
+[RXQ_RX](https://wwwn.cdc.gov/nchs/nhanes/2017-2018/RXQ_RX_J.htm) questionnaire (a) collects information on **prescription medications taken in the past 30 days**, (b) conducted by trained interviewers, and (c) with some quality control efforts.
+:::
+
+```{r fig.cap="Examples of ICD-10-CM codes (3-7 characters, 1st character being alpha, 2-end are numberic, often with a dot) assigned to reasons for using medication (see Appendix in NHANES RXQ_RX component)", echo=FALSE, out.width="100%", out.height="auto"}
+knitr::include_graphics("images/icd.png")
+```
+
+[Count of prescriptions](https://pubmed.ncbi.nlm.nih.gov/16464140/) is often used to measure [comorbidity burden](https://bmchealthservres.biomedcentral.com/articles/10.1186/1472-6963-13-340). This is not a perfect measure. But could serve as a proxy for our purpose.
+
+::: column-margin
+**Prescription medication** (ICD-10-CM codes from all 3 cycles) data was liked with the initial data.
+:::

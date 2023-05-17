@@ -1,0 +1,138 @@
+# Step 3: Recurrence
+
+## Genrate recurrence covariates
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+require(autoCovariateSelection)
+require(dplyr)
+load(file = "data/dfx.RData")
+step1 <- suppressMessages(get_candidate_covariates(df = dfx,  
+                                  domainVarname = "domain",
+                                  eventCodeVarname = "icd10", 
+                                  patientIdVarname = "idx",
+                                  patientIdVector = patientIds,
+                                  n = 200, 
+                                  min_num_patients = 20))
+out1 <- step1$covars_data
+```
+
+::: column-margin
+[@schneeweiss2009high]
+::: 
+
+In this step, we generate <mark>3 binary recurrence covariates</mark> for each of the candidate empirical covariates identified in the previous step:
+
+-   occurred at least once
+-   occurred sporadically (at least more than the median)
+-   occurred frequently (at least more than the 75th percentile)
+
+```{r, cache=TRUE}
+step2 <- get_recurrence_covariates(df = out1, 
+                                   patientIdVarname = "idx",
+                                   eventCodeVarname = "icd10", 
+                                   patientIdVector = patientIds)
+```
+
+## Example of recurrence covariates
+
+```{=html}
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+  tr:nth-child(even) td:nth-child(1){
+    background-color: #f2f2f2;
+  }
+  
+  th {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+  }
+</style>
+```
+| ICD-10-CM code (dimension 1)  | code appeared at least once | code appeared at least more than the median | code appeared at least more than the 75th percentile |
+|------------------|------------------|------------------|------------------|
+| **D64.9** Anemia              | rec_dx_D64_once             | rec_dx_D64_sporadic                         | rec_dx_D64_frequent                                  |
+| **D75.9P** Blood clots        | rec_dx_D75_once             | rec_dx_D75_sporadic                         | rec_dx_D75_frequent                                  |
+| **D89.9** Immune disorder     | rec_dx_D89_once             | rec_dx_D89_sporadic                         | rec_dx_D89_frequent                                  |
+| $\ldots$                      | $\ldots$                    | $\ldots$                                    | $\ldots$                                             |
+| **E07.9** Disorder of thyroid | rec_dx_E07_once             | rec_dx_E07_sporadic                         | rec_dx_E07_frequent                                  |
+
+::: column-margin
+Example of 3 binary covariates created based on the candidate empirical covariate
+:::
+
+## Recurrence covariates in the data
+
+```{r, cache=TRUE, message=FALSE, warning=FALSE, echo=FALSE}
+out2 <- step2$recurrence_data
+data.show.x <- out2[,c("rec_dx_B20_once", "rec_dx_B20_frequent")]
+rows_with_nonzero <- rowSums(data.show.x) > 0
+tail(data.show.x[rows_with_nonzero, ])
+```
+
+::: column-margin
+Here we show <mark>binary recurrence covariates</mark> for only 2 columns
+:::
+
+## Refined recurrence covariates
+
+Below you can click to see a list of all recurrence covariates obtained in our data.
+
+```{r, results='asis', echo=FALSE}
+names_list <- names(step2$recurrence_data)[-1]
+
+n <- length(names_list)
+ncols <- 3
+nrows <- ceiling(n / ncols)
+
+# Create matrix with data
+data_mat <- matrix(c(names_list, rep("", nrows*ncols-n)), nrow=nrows, ncol=ncols, byrow=TRUE)
+
+# Convert to data.frame
+data_df <- as.data.frame(data_mat)
+
+# Add rownames
+rownames(data_df) <- 1:nrows
+
+cat('<button onclick="toggleTable()">Show/Hide Table</button>\n')
+
+cat('<div class="toggle-table" style="display:none">\n')
+knitr::kable(data_df, col.names=NULL, align="c", caption="ICD-10 Recurrence Data",
+             booktabs=TRUE, row.names=TRUE)
+cat('</div>\n')
+
+cat('<script>
+function toggleTable() {
+  var x = document.getElementsByClassName("toggle-table")[0];
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>\n')
+```
+
+::: callout-tip
+-   Given that we had one dimension of proxy data, $p=1$, at most $n=200$ most prevalent codes (with the restriction that minimum number of patients in each code = 20), and $3$ intensity, we could theoretically have at most $p \times n \times 3 = 1 \times 200 \times \ 3 = 600$ recurrence covariates.
+:::
+
+-   Based on all of the restrictions, we created <mark>143 distinct recurrence covariates</mark>.
+-   The merged data (analytic and proxies) size is now 7,585.
+
+::: column-margin
+If 2 or all 3 recurrence covariates are identical, only <mark>one distinct recurrence covariate</mark> is returned. This is why you do not see any sporadic recurrence covariate here.
+:::

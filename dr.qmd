@@ -1,0 +1,66 @@
+# Developments
+
+Causal inference literature, following developments are gaining popularity:
+
+## TMLE
+
+-   Pang et al. 2016 Epidemiology
+-   Pang et al. 2016 Int. J Biostat.
+-   Ju et al. 2019 Stat Meth Med Res.
+
+::: column-margin
+-   Parametric versions implemented
+-   Super learner could be very time consuming
+
+[@pang2016targeted; @pang2016effect; @ju2019scalable]
+:::
+
+## Super learner
+
+-   Wyss et al. 2018 Epidemiology
+-   Ju et al. 2019 J App Stat.
+
+::: column-margin
+-   Parametric versions implemented, or
+-   Bias not used as a performance measure
+
+[@ju2019propensity; @wyss2018using]
+:::
+
+## Cross-validation
+
+-   [Naimi et al. (2021) Am J Epidemiol.](https://doi.org/10.1093/aje/kwab201)
+    -   TMLE not performing as well
+-   [Balzer Westling (2021) Am J Epidemiol.](https://doi.org/10.1093/aje/kwab200)
+
+
+::: column-margin
+[@naimi2017challenges; @balzer2021demystifying]
+:::
+
+## Super learner guideline
+
+-   [Phillips et al. 2023 Int J Epidemiol.](https://doi.org/10.1093/ije/dyad023)
+
+::: column-margin
+[@Phillips2021]
+:::
+
+## Cross-fitting and double robust
+
+[Zivich and Breskin (2021)](https://pubmed.ncbi.nlm.nih.gov/33591058/): Cross-fitting + together with double robust approaches in low-dimensional setting
+
+::: column-margin
+[@zivich2021machine]
+:::
+
+```{r echo=FALSE, out.width='75%', fig.align="center"}
+knitr::include_graphics('images/cf.png')
+```
+
+::: callout-tip
+We want to assess the performance in the <mark>high-dimensional setting</mark> when
+
+-   many proxies (some irrelevant) are available.
+-   complex structure is present.
+:::

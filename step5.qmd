@@ -1,0 +1,52 @@
+# Step 5: Covariates
+
+We select 2 types of covariates for the next step (to analyze using propensity score or other alternative approaches):
+
+## Ideal number of prioritised covariates
+
+Based on calculated $log-absolute-bias$, we select top `k` recurrence covariates to be used in the hdPS analyses later. Below is a plot of all of the absolute log of the Bias Multiplier:
+
+```{r echo=FALSE, out.width='80%', fig.align="center"}
+knitr::include_graphics('images/histhdps.png')
+```
+
+We used $k = 100$ covariates selected by the hdPS algorithm (we call them 'hdPS covariates'). <mark>What should be the cutpoint?</mark>
+
+::: column-margin
+Absolute log of the Bias Multiplier has a null value of 0. Anything above 0 is an indication of confounding bias adjusted by the adjustment of the associated recurrent covariate. For large proxy data sources, $k = 500$ is suggested [@schneeweiss2009high].
+:::
+
+## Investigator-specified covariates
+
+$25$ investigator-specified covariates are selected based on variables in the DAG that are available in the data set.
+
+::: column-margin
+We should also add necessary interactions of these investigator-specified covariates, or add other useful model-specifications (e.g., polynomials).
+:::
+
+```{r fig.cap="Hypothesized Directed acyclic graph drawn based on analyst's best understanding of the literature", echo=FALSE, out.width="100%", out.height="auto"}
+knitr::include_graphics("images/DAGbdcomplete0.png")
+```
+
+::: column-margin
+-   14 demographic, behavioral, health history related variables
+    -   Mostly **categorical**
+-   11 lab variables
+    -   Mostly **continuous**
+:::
+
+## hdPS model
+
+```{r echo=FALSE, out.width='100%', fig.align="center"}
+knitr::include_graphics('images/psmodelhd.png')
+```
+
+::: column-margin
+C = investigator-specified covariates and EC = hdPS covariates [@schneeweiss2009high]
+:::
+
+Then the hdPS can be used as matching, weighting, stratifying variables, or as covariates (usuallly in deciles) in outcome model.
+
+::: column-margin
+[@wyss2022machine]
+:::
