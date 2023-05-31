@@ -4,10 +4,10 @@ project:
 
 book:
   title: "Application of Computer Technology and Document Processing in Forestry Management"
-  author: "Dr. Suborna Ahmed, Forest Resources Management, UBC"
+  author: "Dr. Suborna Ahmed, Forest Resources Management, UBC <br> Christina Howard, Forest Resources Management, UBC"
   search: true
-  favicon: cover.png
-  image: cover.png
+  #favicon: cover_2.png
+  #image: cover_2.png
   page-navigation: true
   twitter-card: true
   site-url: https://forestry.ubc.ca/faculty-profile/suborna-ahmed/
@@ -24,7 +24,6 @@ book:
     - part: motivating.qmd
       chapters: 
         - Part1.qmd
-        - Part2.qmd
     - references.qmd
     
 
@@ -35,7 +34,7 @@ highlight-style: pygments
 format:
   html:
     theme: cosmo
-    cover-image: cover.png
+    cover-image: cover_2.png
     df-print: paged
   pdf:
     documentclass: scrreprt
