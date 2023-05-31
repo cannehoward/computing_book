@@ -1,0 +1,255 @@
+### Main reference {.unnumbered}
+
+::: callout-tip
+## Reference
+
+Karim, ME (2021) "Understanding Propensity Score Matching", URL: [ehsanx.github.io/psw/](https://ehsanx.github.io/psw/)
+:::
+
+
+```{mermaid}
+flowchart LR
+  AA((propensity score matching)) --> A[(Exposure modelling <br/>to estimate <br/>propensity scores)] 
+  AA --> B[(Propensity score <br/>Matching)]
+  AA --> C[(Assess balance <br/>and overlap)]
+  AA --> D[(Outcome <br/>modelling)]
+  style AA fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+The followings are not exhaustive lists, but meant to show different possibilities at each step.
+
+## Step 1: Propensity score estimation
+
+```{mermaid}
+flowchart LR
+subgraph ZA[" "]
+direction LR
+  A[(Exposure <br/>modelling <br/>to<br/> estimate <br/>propensity <br/>scores)]  --> A1(Variable selection)
+  A --> A2(Model specification)
+end
+
+subgraph ZAA[" "]
+direction LR
+  A1 --> A11[Consult  <br/>subject-area  <br/>experts]
+  A1 --> A13[Build DAG  <br/>from  <br/>literature review]
+  A1 --> A12[Analytic methods  <br/>to sort out  <br/>problematic variables-  <br/>collinearity]
+  A2 --> A21[Add interactions]
+  A2 --> A22[Add polynomial terms]
+  A2 --> A23[Add complex functions  <br/>of one or more  <br/>covariates]
+  A2 --> A24[Use machine learning  <br/>methods to identify  <br/>complex patterns]
+end
+
+subgraph ZAAA[" "]
+direction LR
+  A21 --> A221[Unstable <br/>results - <br/>exposure <br/>model <br/>coef SEs <br/>are too <br/>large <br/>or infinite-<br/> Go back to <br/>Model <br/>specification <br/>step]
+  A22 --> A221
+  A23 --> A221
+  A24 --> A221
+  A11 --> A111[Carefully think <br/>about <br/>variable roles]
+  A13 --> A111
+  A12 --> A112[Merge covariates, <br/>covariate levels, <br/>omit some <br/>variables, <br/>find alternative and <br/>less problematic <br/>variable]
+  style A111 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+end
+
+ZA -.-> ZAA -.-> ZAAA
+```
+
+The type of variables we want to include in the propensity score modelling: this should be based on prior knowledge. Usually empirical selection of variables is discouraged. Understanding the **role of each variable**, e.g., effect modifier vs. confounder will determine the analysis strategy.
+
+```{mermaid}
+flowchart LR
+  A1110[\Variable roles\] --> A1111{{Select variables <br/>causing outcome}}
+  A1110 --> A1112{{select variables <br/>causing both outcome <br/>and exposure}}
+  A1110 --> A1113{{omit variables <br/>only causing <br/>exposure}}
+  A1110 --> A1114{{omit variables <br/>in the causal <br/>pathway}}
+  A1110 --> A1115{{omit variables <br/>that are effect <br/>of outcome}}
+  A1110 --> A1116{{omit variables <br/>that are <br/>simply noise}}
+  A1110 --> A1117{{add useful <br/>proxies}}
+  style A1110 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5
+```
+
+## Step 2: Propensity score matching
+
+```{mermaid}
+flowchart LR
+subgraph ZA[" "]
+direction LR
+  B[(Propensity <br/>score <br/>Matching)] --> B1(Matching<br/> methods)
+  B --> B2(Matching <br/>ratios)
+  B --> B3(replacements)
+end
+
+subgraph ZAA[" "]
+direction LR
+  B1 --> B11[Nearest <br/>neighbor]
+  B1 --> B12[Caliper, <br/>0.2*SD of <br/>logit of <br/>propensity <br/>score]
+  B1 --> B13[Optimal]
+  B1 --> B14[Full]
+  B2 --> B21[Fixed <br/>ratio]
+  B2 --> B23[Variable <br/>ratio]
+  B3 --> B33[With]
+  B3 --> B34[Without]
+end
+
+subgraph ZAAA[" "]
+direction RL
+  B21 --> B211[1:1, pair]
+  B21 --> B212[1:M,<br/> where M>1 <br/>can be <br/>any integer]
+  B1 --> B0>Some <br/>combinations <br/>assuming <br/>sample size <br/>do not <br/>reduce <br/>too much]
+  B2 --> B0
+  B3 --> B0
+end
+
+ZA -.-> ZAA -.-> ZAAA
+```
+
+## Step 3: Balance of Propensity score matched dataset
+
+```{mermaid}
+flowchart TD
+subgraph ZA[" "]
+direction LR
+  C[(Assess balance <br/>and overlap)] --> C1(SMD)
+  C --> C2(Variance  <br/>ratio)
+  C --> C3(Visualization, <br/>overlapping histograms <br/>love plot, <br/>balance tables)
+end
+
+subgraph ZAA[" "]
+direction LR
+  C1 --> C11[\Unsatisfactory balance  <br/>or overlap\]
+  C2 --> C11
+  C3 --> C11
+  C3 --> C31[\Propensity scores <br/>too close <br/>to 0 or 1\]
+end
+
+subgraph ZAAA[" "]
+direction RL
+  C11 --> C111[/Go back to <br/>Exposure modelling step\]
+  C31 --> C111
+  C31 --> C112[/Trimming, <br/>not preferred\]
+end
+
+ZA -.-> ZAA -.-> ZAAA
+```
+
+## Step 4: treatment effect estimation from outcome model
+
+```{mermaid}
+flowchart TD
+subgraph ZA[" "]
+direction LR
+  D[(Outcome <br/>modelling)] --> D1(Crude)
+  D --> D2(Adjusted)
+  D --> D4(Variance <br/>estimation)
+end
+
+subgraph ZAA[" "]
+direction LR
+  D2 --> D221[All covariates, <br/>preferred]
+  D2 --> D222[Partial list <br/>of covariates]
+  D4 --> D41[Cluster options]
+  D4 --> D42[Bootstrap options]
+end
+
+ZA -.-> ZAA
+```
+
+## Reporting
+
+-   We should report the results and interpret the treatment effect estimates in the context of the research question and the underlying assumptions.
+-   We need to clearly communicate the limitations and potential biases in the analysis, and reporting of results from useful **sensitivity analyses**.
+
+```{mermaid}
+flowchart TD
+subgraph ZA[" "]
+direction LR
+  D6(Sensitivity <br/>Analysis <br/>for <br/>overall process) --> D5(Sensitivity <br/>Analysis <br/>for unmeasured <br/>confounding)
+end
+
+subgraph ZAA[" "]
+direction LR
+  D5 --> D51[Rosenbaum <br/>bounds]
+  D5 --> D52[Quantitative <br/>bias analysis, <br/>E-value]
+  D6 --> D62[Alternative <br/>matching <br/>algorithm]
+  D6 --> D61[Alternative <br/>model <br/>specifications]
+  D6 --> D63[Alternative <br/>missing data <br/>method]
+end
+
+ZA -.-> ZAA
+```
+
+-   We should also discuss the implications of the findings for the target population and the broader scientific literature.
+
+::: callout-tip
+## Total cholesterol level example
+
+A predictive goal, on the other hand, would involve developing a model that can accurately predict total cholesterol levels based on various factors, including Rosuvastatin use and other relevant predictors (e.g., race, sex, and age).
+:::
+
+```{mermaid}
+flowchart LR
+  A[Rosuvastatin] --> Y(Total cholesterol level)
+  B[Race] --> Y
+  C[Sex] --> Y
+  D[Age] --> Y
+```
+
+## Causal goal
+
+The causal goal focuses on understanding the causal relationship between a risk factor (often a treatment, A) and a health outcome (Y). It aims to identify the factors that contribute to the development, progression, or prevention of a specific disease or health outcome. Control for confounding factors (L) is often a necessary step in understanding such a relationship, as these factors may obscure the true causal relationship between the treatment and the outcome. The focus of this goal is often on estimating the parameter **'treatment effect'**, which represents the **causal effect** of the treatment (A) on the outcome (Y). Causal goals guide the development of effective interventions and policies by understanding the mechanism by which the factors influence health outcomes.
+
+::: callout-tip
+## Total cholesterol level example
+
+Causal goal helps understanding the causal effect of Rosuvastatin on total cholesterol levels while accounting for confounding factors such as race, sex, and age.
+:::
+
+```{mermaid}
+flowchart LR
+  A[Rosuvastatin] --> Y(Total cholesterol level)
+  B[Race] --> Y
+  C[Sex] --> Y
+  D[Age] --> Y
+  B --> A
+  C --> A
+  D --> A
+```
+
+::: callout-important
+There can be a **overlaps** between causal and predictive goals in epidemiological research, but they serve distinct purposes and have different focuses.
+
+-   Understanding the causal relationships between variables can help improve the accuracy of predictive models. For example, if you know that a certain factor causally affects a health outcome, incorporating that factor into the prediction model can lead to better predictions.
+-   The process of building a predictive model may shed light on potential causal relationships between variables that could be further investigated in causal analyses.
+:::
+
+## Propensity score weighting
+
+```{mermaid}
+flowchart LR
+  AA((propensity score weighting)) --> A[(Exposure modelling <br/>to estimate <br/>propensity scores)] 
+  AA --> B[(Converting propensity scores  <br/>to  <br/>inverse probability weights,  <br/>or IPW)]
+  AA --> C[(Assess balance <br/>and summary of IPW  <br/>in the weighted data)]
+  AA --> D[(Outcome <br/>modelling in <br/>the IPW weighted data)]
+  style AA fill:#f9f,stroke:#333,stroke-width:4px
+```
+
+### Average Treatment Effect (ATE) {.unnumbered}
+
+```{=tex}
+\begin{align*}
+    IPW_i &= \begin{cases}
+        \frac{1}{\text{PS}_i} & \text{if individual } i \text{ is treated (} A_i = 1 \text{)} \\
+        \frac{1}{1 - \text{PS}_i} & \text{if individual } i \text{ is not treated (} A_i = 0 \text{)}
+    \end{cases}
+\end{align*}
+```
+### Average Treatment Effect on the Treated (ATT) {.unnumbered}
+
+```{=tex}
+\begin{align*}
+    IPW_i &= \begin{cases}
+        1 & \text{if individual } i \text{ is treated (} A_i = 1 \text{)} \\
+        \frac{\text{PS}_i}{1 - \text{PS}_i} & \text{if individual } i \text{ is not treated (} A_i = 0 \text{)}
+    \end{cases}
+\end{align*}
+```
