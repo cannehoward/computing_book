@@ -1,0 +1,125 @@
+---
+title: "Handling Data in R"
+output:
+  word_document: default
+  html_document: default
+---
+
+# Data Import
+
+## Desktop version of R
+Keep your data in the same folder as this .Rmd file. If they are not kept in the same folder, then you have to tell R exactly where your data is by copying and pasting the file pathway directly into R. But overall, it is much easier and simpler to keep everything in the same folder. By default, the folder that your .Rmd file is in is called the "working directory". This is the location that R assumes all of your input files are located. R will also place all of your outputs in this working directory, unless you specify otherwise.
+
+## RStudio online
+Upload the data file like demonstrated in the video, then write the same `read.csv()` function to import the data file onto R.
+ 
+# Input & Output
+You can check what your working directory is by using the function `getwd()`, or "get working directory". Interestingly, this code has no arguments - in other words, it does not need anything nested between the `()` to work - and its output should be a folder pathway to where your .Rmd file is. If you want to change your working directory - which at this point in time is not recommended - you can use the function `setwd()`, or "set working directory". Unlike `getwd()`, you need to paste the desired folder pathway between the `()` of `setwd()` in quotation marks `""` to set a new working directory. For example: `setwd("C:\\Desktop\\Handling data in R\\")` if you are using Windows and `setwd("/Users/Desktop/Handling data in R/")`. Finding a pathway in Mac is relatively complicated, so again, it is highly recommended that you place everything in one folder so you do not have to worry about setting a new working directory.
+
+After setting a working directory, you can check all of the files that exist in your directory by using `dir()`. This function is fantastic for checking whether you are in the right folder, whether there are any extra files, and, most importantly, whether there are any missing files.
+
+Checking whether you have all of the necessary files in your directory is important will make your life so much easier when you import data into R. For example, if the file **trees_data.csv** is in your working directory, all you need to do to import this into R is: `read.csv("trees_data.csv", header = TRUE)`. If this file is not in your working directory, you would need to replace `"trees_data.csv"` with the entire pathway of the file - this will make your code much bulkier, more confusing, and less shareable. 
+
+Note also that the file name must be in `""` and must be exactly like the file on your desktop. A common problem that students have is downloading the same csv file multiple times, resulting in an automatic "-1" (i.e. trees_data-1.csv) - in this case, you need to also add "-1" to your code for it to work. The argument `header = TRUE` is also important if you are importing data with existing headers (AKA column names). Try changing it to `header = FALSE`, what does the imported data look like now?
+
+The functions for importing data from your hard drive into R are relatively intuitive: `read.csv()` for csv files, `read.table()` for txt files. There are other functions as well, but we will not be covering them in this course. These are the two main importing functions that we will use.
+
+When installing packages, it is suggested that you # all `install.packages()` codes into comments because:
+* It will cause problems when you try to knit the .rmd file to Word and 
+* it is generally insensitive to share this document to someone and make them accidentally install something into their hard drive
+
+You can also export the data from R to txt or csv by using `write.table()`. This table, by default, will be exported to your working directory. Try typing `?write.table` into the console, you can read more information about this function there!
+
+```{r}
+# Location of the parent directory / folder you saved this .RMD file
+getwd()
+
+# Listing all files in the directory
+dir()
+
+# Importing a csv file
+tree1 <- read.csv("trees_data.csv", header = TRUE)
+
+# Importing a .txt file
+HDB <- read.table("height_dbh.txt", header = TRUE) 
+
+# Importing VRI data
+vri_data <- read.csv("VRI_data.csv", header = TRUE)
+
+# Importing an excel data file
+#install.packages("readxl")
+#library("readxl")
+#tree2 <- read_excel("trees_data.xlsx")
+
+# Export data as a .txt file
+write.table(HDB, "MyData.txt")
+
+# Export data as a .csv file
+write.table(HDB, file = "f1.csv", sep = ",", col.names = NA, qmethod = "double")
+```
+
+# VRI Data
+Recall that there are several ways that you can call for a variable in a dataset: (1) using `$` or (2) using `attach()`. `attach()`, you guessed it, attaches the data to this R session so we do not need to use $. `attach()` is usually more useful when you are only working with 1 dataset in your .Rmd file, else it will get very confusing if you or someone you share this file to run this file out of order.
+
+We can find a summary of all statistics of a dataset using `summary()`. In the example code below (`vri_summary = summary(vri_data)`), you may see that we are using a `=` instead of a `<-` to assign a value to a variable. In this case, `=` and `<-` function similarly (you can change `=` to `<-` and re-run the code). However, they may have different functions in other scenarios. We will not be covering these scenarios, so for the context of this course, just understand that `=` and `<-` are similar.
+  **Important note:** Recall that R's "equal to" is actually `==`. So `=` and `==` are **VERY different**!
+
+You can also find the dimension of the data using `dim()`. This should tell you how large the dataset is (AKA numbers of rows and columns) without you having to run the actual data. This may save you some time if your dataset is too big.
+
+Finally, `head()` and `tail()` print the first and last few rows of a dataset for you - again, helpful if your dataset is very large. You can also specify how many rows you want to print by adding an integer after the data frame name. For example, `head(vri_data, 10)` will print the first 10 rows for you.
+
+```{r}
+attach(vri_data)
+
+# Set an object for string the data summary
+vri_summary = summary(vri_data)
+
+# Dimension of the data
+dim(vri_data)
+
+# Print first few rows
+head(vri_data)
+
+# Print last few rows
+tail(vri_data)
+```
+
+
+# Data selection and variable information
+Once we have successfully imported our data into R and gained general information about it, we can also go into more specific data exploration. Firstly, we can tell R to only extract a few specific rows and columns from the dataset by using `[]`. Note that the first argument in this bracket represents the rows and the second argument represents the column. For example, when we type `vri_data[100:110, 4:5]`, we're telling R to extra **rows 100 to 110** and **columns 4 to 5**. We use `:` between two numbers to indicate that it is a range of sequential numbers that we want. So, `100:110` means from **100 to 110**. 
+
+If it is not a range of rows/columns that you want to extract, but very specific, non-consecutive rows/columns, you can nest all the rows/columns that you want in a vector, like in `vri_data[c(10, 20, 23), ]`. Here, we only want **rows 10, 20, and 23**. Finally, if you want to extract all rows or all columns, simply leave the argument blank. In other words, `vri_data[10, ]` tells R to extract **row 10** and **all columns**, but `vri_data[ , 10]` tells R to extra **all rows** and **column 10**.
+
+The rest of the functions in this tutorial have already been covered by a previous R lecture file or your assignment. The functions themselves are not hard, it is understanding what they do and when to use them that requires a bit more thought. And as always, the best way for you to be better in R is to practice! 
+
+```{r}
+# Extracting some rows and all columns
+
+vri_data[10:13, ]
+
+# Printing all variable names 
+names(vri_data)
+
+# An example of creating a variable with sequential values
+x <- 1:5
+
+# Finding the average of the variable x
+mean(x)
+
+# Printing the average of variable ProJ_Age_1
+
+mean(PROJ_AGE_1)
+
+# Printing data types of some variables
+
+class(SPECIES_CD_1)
+
+class(PROJ_AGE_1)
+
+class(PROJ_HEIGHT_1)
+
+# Summarizing the entire dataset
+
+summary(vri_data)
+
+```
