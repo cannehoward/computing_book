@@ -1,0 +1,35 @@
+# 5.1 R and RStudio Introduction {.unnumbered}
+
+### Video: R Studio Basics and RMarkdown Initiation
+
+The following video will help introduce you to the world of R, RStudio, and RMarkdown. Using RStudio for the first time can be intimidating, but by following guidance provided in this video, you should feel comfortable getting started.
+
+{{< video https://www.youtube.com/watch?v=8_jS1OXAJQU >}}
+
+## 5.1.1 Installation
+
+You need to install R first based on your operating system (Mac/Windows) and choose your CRAN location based on your current geographical location. After installing R, install RStudio. The installation process is very similar for Mac and Windows.
+
+[Install R](https://www.r-project.org/) & [Install RStudio](https://posit.co/download/rstudio-desktop/) on a laptop/desktop:
+
+-   See this [video](https://www.youtube.com/watch?v=GAGUDL-4aVw&t=1s) to follow the steps, but you need to select the appropriate R version, operating system, and location.
+
+-   You can watch this [video](https://www.youtube.com/watch?v=EmZqlcKkJMM) if you are running on a Mac system.
+
+-   If the desktop version is creating a problem or you can't install R & RStudio, then you can work on RStudio Cloud, an online version of RStudio, as well. To work on RStudio Cloud, you need to sign-up with a username and password. You do not have to use your real name for this sign-up.
+
+-   Similar to choosing CRAN location when downloading the desktop version of R/RStudio, select the geographical location closest to you when signing up for an RStudio Cloud account.
+
+-   Work online: [Cloud-Based](https://posit.cloud/)
+
+-   Helpful external [video](https://www.youtube.com/watch?v=U-pLWJO6-P4)
+
+## 5.1.2 R and RStudio Basic
+
+R is a programming language and a piece of software used to run programs. It is mostly pretty clear from the context what is being referred to. In the next few weeks, you will learn how to write some very simple programs in the R language. The programming language was created at the University of Auckland in the early 1990s by Ross Ihaka and Robert Gentleman. The R language is based on the S language, which is a commercial software that was developed at Bell Laboratories in the 1970s. R is a [GNU project](https://www.gnu.org/), meaning that it is free and open-source. The continued development and enhancement of R is overseen by a group of about 20 people that are referred to as the [R Core Team](https://www.r-project.org/contributors.html).
+
+R is an interpreted language (=scripting language) that does not need to be compiled before you run it. Some other languages such as C, Java, and FORTRAN, have to compile the human-readable code into machine-readable code (0s and 1s) before the code can be run. R is a high-level programming language that is fairly easy to understand and does not give us access to any of the inner workings of a computer.
+
+R code can bear a lot of similarity to other programming languages because it supports a mix of programming paradigms: imperative language (sequence of statements), object-oriented programming, and functional programming.
+
+R provides an environment for statistical computing and graphics. Since this is an introductory module to R, we will not be using codes and functions that are too complicated. However, we will learn to create graphics and, hopefully, we will notice that R is able to create much nicer graphs than Excel and that we as users of R retain full control of how the graphs would look.

@@ -1,0 +1,28 @@
+# 7.1 Installing QGIS {.unnumbered}
+
+In this book, we will be using QGIS and it has extensive online information available.
+
+You can download the QGIS software from this [page](https://qgis.org/en/site/forusers/download.html). There are several download options for Windows and Mac depending on your computer operating system. There are also two different system types - 32 bit and 64 bit - so you will need to check your computer system and select the appropriate one.
+
+-   For Windows, you can go to Control Panel \> System and Security \> System, or search for "System" in the search box on the lower-left corner to find the information on your computer system.
+-   For Mac, you can go to the Apple menu on the upper left corner of your screen and select "About This Mac".
+
+On the QGIS download page, you can see that there are two download options: "Latest release" (richest on features) and "Long term release" repository (most stable). For this book, you will need to download the Long term release version.
+
+## 7.1.1 Install QGIS on Windows:
+
+Use the following video to learn how to download QGIS if you are working on a Windows based system.
+
+{{< video https://www.youtube.com/watch?v=EWTga7F-AKo >}}
+
+## 7.1.2 Install QGIS on Mac System:
+
+Use the following video to learn how to download QGIS if you are working on a Mac based system.
+
+{{< video https://www.youtube.com/watch?v=obYN95ptsHg >}}
+
+::: callout-tip
+# Note
+
+The latest long term release version is version 3.16
+:::

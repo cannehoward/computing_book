@@ -1,0 +1,33 @@
+# 8.3 Union and Intersection Geoprocessing Tools {.unnumbered}
+
+## 8.3.1 Union and Intersection
+
+The **union** tool allows us to combine all of the information from both the input and overlay layers.
+
+![Figure 16 - Visual representation of the union tool.](/images/gis_1.png)
+
+On the other hand, the **intersection** tool allows us to keep only the information that is present in both the input and overlay layers.
+
+![Figure 17 - Visual representation of the intersection tool.](/images/gis_2.png)
+
+It is also important to note that, unlike the clip and difference tools, the output layer of the union and intersection tools will contain the attributes from both the input and overlay layers.
+
+## 8.3.2 Example
+
+Let's say we have a polygon layer of Vancouver parks that contains information on the name and location of the parks. We also have another polygon layer of Vancouver community gardens that contains information on the plant species grown.
+
+If we use the union tool, we will get a layer that contains all of the polygons from both Vancouver parks and Vancouver community gardens, as well as information on the park name, park location, and plant species grown.
+
+If we use the intersection tool, we will get a layer that only contains polygons from areas where we can find both a park and a community garden (e.g. Riley Park Community Garden), and this layer will also contain information on the park name, park location, and plant species grown.'
+
+### Video: Union & Intersection
+
+The following video will provide an overview of how to use the union and intersection tools.
+
+{{< video https://www.youtube.com/watch?v=d6hnJm6qXjk >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::

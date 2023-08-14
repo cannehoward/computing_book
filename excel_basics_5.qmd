@@ -1,0 +1,83 @@
+# 2.4 Mastering the Power of Excel's Calculation Capabilities {.unnumbered}
+
+::: callout-tip
+# Practice File
+Use this file [forumulas worksheet](/external_files/Formulas_Part2.xlsx) to practice each formula in this part (Further instructions are found under each formula).
+:::
+
+## 2.4.1 Nested Formulas
+
+Now that you have learned about the different types of formulas, you will learn about how we can combine these formulas (Note that we can combine up to 64 different formulas in Excel).
+
+Here is an example: Let's say, if the temperature is more than 15°C AND the chance of rain is less than 50%, then we will measure trees. If not, then we will not measure trees.
+
+![Figure 8 - Nesting formulas example.](/images/8.png)
+
+We can translate the above case and answer the question "Measure trees?" by combining IF with AND: IF(AND(B3\>15, C3\<50), "Yes", "No")
+
+### Video: Nested Formulas Example
+
+The following video provides further description for nesting formulas within excel. Nesting formulas allows for a more efficient use of the excel worksheet envrionment.
+
+{{< video https://www.youtube.com/watch?v=3RYJI3y8Bdk >}}
+
+::: callout-tip
+# Practice: Nested Formulas
+
+Go to the first worksheet ("Nested") and try to answer the question by combining IF and AND.
+
+Use this solution file [Solution File worksheet](/external_files/Formulas_Part2_Solutions_1.xlsx)
+:::
+
+## 2.4.2 Constant vs Auto-Adjusted Formulas
+
+Formulas can also be automatically adjusted when they are moved or copied to other cells. This is an extremely useful feature, especially when the formulas apply to different columns and/or rows. However, we might want to hold some references constant for the formula to work better in other cells. We can do this by adding a dollar sign (\$) in front of the column letter and/or row number, depending on which we want to hold constant.
+
+Example:
+
+-   A6 : Not a constant, will be auto-adjusted
+-   \$A6 : Column is held constant; Row will be auto-adjusted
+-   A\$6 : Row is held constant; Column will be auto-adjusted
+-   \$A\$6 : Both row and column are held constant
+
+::: callout-tip
+# Note
+
+Note: You can add dollar sign manually or by using the F4 key (e.g. 1st press = \$A\$6, 2nd = A\$6, 3rd = \$A6, 4th = A6)
+:::
+
+### Video: Auto Adjusted Formulas
+
+The following video will outline how to use auto adjusted formulas in excel. This is an excellent tool to be familiar with, as it can help you save time while applying formulas to your excel sheets.
+
+{{< video https://www.youtube.com/watch?v=Fh83z-r3fHc >}}
+
+::: callout-tip
+# Practice: Auto-Adjusted Formulas
+
+Go to the second worksheet ("Auto-adjusted") and try to find the total tuition of each undergraduate program.
+
+Solution file: [Solution File worksheet](/external_files/Formulas_Part2_Solutions_1.xlsx)
+:::
+
+## 2.4.3 Lookup Formulas
+
+The last sets of formulas that we will cover in the module are formulas that can be used to look up information. There are 3 types of lookup formulas that will be discussed here: LOOKUP, VLOOKUP, and HLOOKUP.
+
+LOOKUP and VLOOKUP basically have the same function - the only difference is just where these formulas look for the lookup criteria. Note that the data has to be sorted in an ascending order to ensure the accuracy of these lookup formulas.
+
+The LOOKUP formula has two forms: The vector form and the array form. The vector form allows us to manually specify the range of cells that contains the criteria.
+
+### Video: Lookup Formulas
+
+VLOOKUP and HLOOKUP work the exact same way, but VLOOKUP is used for data that arranged based on columns, while HLOOKUP is used on data that are arranged by rows. VLOOKUP will automatically look for the criteria from the leftmost column of our table array, while HLOOKUP will automatically look for the criteria from the topmost column of our table array. The following video further outlines lookup formulas:
+
+{{< video https://www.youtube.com/watch?v=M-hcK6NDiRA >}}
+
+::: callout-tip
+# Practice: Lookup formulas
+
+Go to the last worksheet ("Lookup") and try to fill in the LOOKUP, VLOOKUP, and HLOOKUP tables.
+
+Solution file: [Solution File Excel](/external_files/Formulas_Part2_Solutions_1.xlsx)
+:::

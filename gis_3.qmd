@@ -1,0 +1,31 @@
+# 7.2 Basic Concepts in GIS {.unnumbered}
+
+## 7.2.1 Geodata
+
+Geodata is information about geographic locations that are stored in a format that can be used with a geographic information system (GIS). Geodata can be stored in a database, geodatabase, shapefile, coverage, raster image, dbf table, or even a Microsoft Excel spreadsheet.
+
+This [page](https://desktop.arcgis.com/en/arcmap/latest/manage-data/main/what-is-geodata.htm) provides links to explanations on the geodata types that can be used with GIS software.
+
+## 7.2.2 Introduction to GIS data
+
+**Geographic Information System** (GIS) is a system that allows us to understand and analyze spatial data. There are 2 main aspects to GIS data: the "what" and the "where". The "what" refers to the object of interest and the "where" refers to the location of the object. We can obtain these data from 2 sources: Global Positioning Systems (GPS) and Remote Sensing (RS).
+
+There are 2 types of GIS data: raster and vector:
+
+-   **Raster** data represent objects in the form of a grid and are made up of cells containing values that represent certain information. For example, in raster data on annual precipitation, each cell will contain a value corresponding to the annual precipitation for the particular area that the cell is representing. One of the raster file formats used in GIS is .grd (grid) files.
+
+-   **Vector** data represent objects in the form of points, lines, and polygons. Points are used to represent objects that are assumed to have no dimensions, such as individual trees or gas wells. Lines are made by connecting at least 2 points and can be used to represent objects such as roads or streams. Polygons are used to represent area objects such as provinces or countries. In GIS, vector data usually comes in the format of shapefiles (.shp).
+
+### Video: GIS Data Layers
+
+The following video will introduce you to some of the basic concepts of QGIS, including opening different kinds of data within the software.
+
+{{< video https://www.youtube.com/watch?v=M3MHFVZmsQI >}}
+
+::: callout-tip
+# Sample data
+
+You can find the My_new_project file in the QGS folder:
+
+[Project Zipped folder](/external_files/V1_Start_New_Project.zip)
+:::

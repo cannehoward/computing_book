@@ -1,0 +1,135 @@
+# 1.2 Basic Tabs in MS Word {.unnumbered}
+
+In this section, we will use the home, insert, layout, and references tabs from the toolbar to prepare an article in MS Word.
+
+## 1.2.1 Home Tab
+
+### Video: Word Processing Home Tab
+
+This video will go over how to professionally format documents using tabs from the toolbar. Specifically, this video focuses on the Home Tab.
+
+{{< video https://www.youtube.com/watch?v=wPlQcOds4ek&t=1s >}}
+
+The practice files we showed in this video can be found here:
+
+[Practice word file](/external_files/practice-1.docx)
+
+[Practice image](/images/forestry_pic.png)
+
+## 1.2.2 Styles Menu
+
+Add styles for Title, Subtitle, Heading 1, Heading 2, Paragraph from the Styles menu.
+
+![Figure 2 - A close up of the MS Word styles menu.](/images/2.png)
+
+In the author list, we can add a footnote to provide detailed information about an author. If multiple authors share the same information we need to cross-refer the first footnote to the second author. See the References toolbar for adding a footnote.
+
+## 1.2.3 Style Pane Options
+
+All styles and other options that are added on the document are listed on the Style Pane Option. You can choose the following to see the items from the list Is been used in the current document.
+
+![Figure 3 - Viewing the style pane options.](/images/3.png)
+
+## 1.2.4 Font
+
+Font is used to set the font style for the selected text. Common professional fonts are: Arial, Calibri, Times New Roman, and common font size for text in body is 11 or 12.
+
+## 1.2.5 Paragraph
+
+In all paragraphs, in a document, you should use the same style. You can create a style or use the "Normal" style and use the following options from the modify menu:
+
+-   Set the font style for the selected text
+-   Common professional fonts are: Arial, Calibri, Times New Roman
+-   Common font size for text in body is 11 or 12.
+-   Define the style of each paragraph in the body
+-   Bullet points, numbering, and indenting
+-   Line space: single or double space
+
+![Figure 4 - Using the modify menu within styles to create paragraph settings.](/images/4.png)
+
+## 1.2.6 Insert Tab
+
+### Video: The Insert Tab
+
+The following video will outline the use of the insert tab. The insert tab allows for the addition of new pages, tables, images, and other document items.
+
+{{< video https://www.youtube.com/watch?v=0hDagYnES7U >}}
+
+## 1.2.7 Page Break
+
+Page break is used to separate two sections from each other. Modifying previous pages won't impact the following section when page break is used.
+
+## 1.2.8 Pictures and Graphs
+
+Pictures and graphs can be easily copied and pasted from clipboard (under "Format Painter") or other applications such as Excel. Clipboard is a dialog box launcher that can be found under the Home tab. It works as memory and this task pane can hold the last image, text, and table you copied or cut. You can add the listed items on the clipboard anywhere in the document, decide how they appear within the text, and make sure they are properly aligned.
+
+## 1.2.9 Shapes and text box
+
+The shapes and text box is used to draw diagrams within the text. When using the tool, pay attention to alignments, don't make too flashy or overuse unfamiliar shapes, and keep look and feel consistent throughout your document. Grouping objects is a good way to avoid misalignment in different versions.
+
+## 1.2.10 Equations and Symbols
+
+Equations and symbols can be used to insert formulas. You could only use symbols, superscripts, and subscripts to format equations, however these will no be very easy to edit. Using insert equations for long formulas allows easy editing and your formulas can be saved. There is also ink equation as an option to draw a formula.
+
+## 1.2.11 Header & Footer
+
+A header is the section of the document that appears in the top margin and a footer is the section of the document that appears in the bottom margin. They are useful to apply when you are required to include page numbers on a document. They are also useful to apply a title or name to every page of a document. You can also specify whether or not you want the header or footer to apply to all pages, or all pages except the first.
+
+## 1.2.12 Table
+
+Table is used to insert word-native tables in a document. You can also import tables from other MS applications such as Excel. Remember to use a consistent format for all tables in a document.
+
+## 1.2.13 Cross-reference
+
+This book emphasizes that all tables and figures within the document should be cross-referenced within the text. Cross refer any section number, figure, or equation mentioned within a paragraph. The cross-reference tool is also available on the "References" tab.
+
+![Figure 5 - The locations within tabs where the cross-reference tool is available.](/images/5.png)
+
+## 1.2.14 Layout Tab
+
+### Video: The Layout Tab
+
+The following video will outline how to use the layout tab to organize the orientation of a document. It will also describe how to properly use page and section breaks within a document. Any page within a document can be oriented as Portrait or Landscape.
+
+{{< video https://www.youtube.com/watch?v=G0WG-t-cHEU >}}
+
+## 1.2.15 References Tab
+
+### Video: The References Tab
+
+The following video will describe the applications of the references tab. Through this tab, we can insert footnotes, citations, and a bibliography, which are important components of a scientific paper or report. Further, this tab can be used to insert table of figures and table of contents. Knowing how to insert these important document components will allow all your future reports easier to navigate.
+
+{{< video https://www.youtube.com/watch?v=sPis8zKfiLk >}}
+
+::: callout-tip
+# Insert Footnote
+
+If you are running on a Mac system and your "Footnote and Endnote" panel shown above are not showing up, follow this video:
+
+{{< video https://www.youtube.com/watch?v=mUBVPYlFiZ4 >}}
+
+Otherwise, you can also select "Footnote" under "Insert" and the panel should show up:
+
+![Figure 6 - Finding insert footnote location on Mac.](/images/6.png){width="175"}
+:::
+
+## 1.2.16 Insert Citation
+
+Professional reports and scientific articles all require your text to be cited thoroughly. Learning early good habits in citation and practicing them regularly will set you up for success for your future career. Example references for you to practice with:
+
+-   Systematic review of yield responses of four North American conifers to forest tree improvement practices. [@NEWTON200329]
+-   The Effect of Planting Density on Dominant Height in Unthinned Slash Pine Plantations. [@10.1093/forestscience/30.4.1059]
+-   Breeding program and strategy for white spruce in Quebec. [@quebec1996]
+-   Applied forest tree improvement. [@zobel1984]
+
+## 1.2.17 Bibliography
+
+The bibliography is used to list all sources referred to in a document. Most professional documents require the inclusion of a bibliography, as a way to account for and summarize all the citations that were included within the text. Once citations have been inserted into a document, you can click on the bibliography tab within the references tab to insert the full bibliography at the end of the document.
+
+## 1.2.18 Insert Caption: Figure/Table
+
+Once a figure or table is inserted within a document, it requires a caption. Within the references tab, you can locate the insert caption button. The caption can be created by typing out a title and selecting the appropriate label type (either figure or table).
+
+## 1.2.19 Table of Contents, Table of Figures, and List of Tables
+
+Most professional documents require a table of contents, not to mention it makes your documents easier to navigate for editing purposes. If appropriate title and text styles have been used throughout the document, then using the "insert table of contents" tool should automatically produce a hierarchical description of your document. This is another reason to be diligent in captioning and styling your text properly. This also applies to inserting the table of figures and list of tables. If the structure of the table of contents is incorrect, you can modifying styles of headings or text, then auto update the table of contents to reflect the changes you have made.

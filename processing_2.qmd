@@ -1,0 +1,45 @@
+# 8.1 Introduction to Geoprocessing Tools {.unnumbered}
+
+### Video: GIS Geoprocessing Tools
+
+Geoprocessing tools are a set of tools that can be used to analyze spatial data in GIS. There are 7 geoprocessing tools that you will learn in this course: Dissolve, Buffer, Clip, Split, Union, Intersect, and Difference. The video below provides an overview of these geoprocessing tools.
+
+{{< video https://www.youtube.com/watch?v=iF2Y7ujt-ZI >}}
+
+## 8.1.1 Dissolve
+
+The dissolve tool is used to merge adjacent features that have identical values for certain attributes. For example, we can use dissolve to merge adjacent lands with the same elevation to create a contour map. This tool is useful for simplifying objects and increasing data processing speed, and is thus commonly used together with the buffer tool.
+
+### Video: Dissolve
+
+The following video provides an overview of the dissolve tool.
+
+{{< video https://www.youtube.com/watch?v=_DlfRtIUqOE >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::
+
+## 8.1.2 Buffer
+
+The buffer tool is used to create a buffer zone around a feature within a specified distance. For example, we can use the tool to visualize a 30 m buffer zone around rivers where forest harvesting is prohibited in order to protect the river ecosystem. As have been previously mentioned, we might simplify the buffer zones that we have created and increase the processing speed by dissolving the buffer zones together.
+
+### Video: Buffer
+
+The followiung video provides an overview of the buffer tool.
+
+{{< video https://www.youtube.com/watch?v=6jVT1cKnco4 >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::
+
+::: callout-tip
+# Note
+
+To be able to set the distance units (e.g. kilometers), you will need to make sure that the layer has a CRS. You can refer to chapter 6 to find the explanation on setting CRS.
+:::

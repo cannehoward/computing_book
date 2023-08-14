@@ -1,0 +1,109 @@
+# 2.2 Formatting and Organizing Datasets {.unnumbered}
+
+## 2.2.1 Formatting Datasets
+
+Once we have our data ready, we would need to format them to make our worksheet looks more professional.
+
+There are 2 functions that we can use to format our data: Format as Table and Cell Styles. Format as Table is best used for formatting tables with one-row headers, whereas Cell Styles can be used for tables with multi-row headers and cells in general.
+
+Some other formatting that we need to do include adjusting row height/column width and removing gridlines.
+
+### Video: Formatting Tables
+
+If you are submitting a table as part of a report or dataset, it is good practice to follow some general formatting guidelines. The following video will outline some of these good practices.
+
+{{< video https://www.youtube.com/watch?v=7PiQlRzXOEI >}}
+
+### Video: Professional Formatting
+
+The following video describes further methods that can help you format your worksheets and tables formally. These skills will be helpful in a professional or academic setting.
+
+{{< video https://www.youtube.com/watch?v=U3NRIdNNW3Q >}}
+
+::: callout-tip
+# Practice: Professional formatting
+
+Here is the file that was used in the video: [Format Cells worksheet](/external_files/Format_cells_1.xlsx)
+
+Try to do the following things:
+
+-   Adjust column widths
+-   Add a title and format the cell
+-   Format table
+-   Remove gridlines
+
+Take a look at this file for an example of how you can do the above: [Formatted worksheet](/external_files/Formatted.xlsx)
+:::
+
+## 2.2.2 Sorting and Filtering Data
+
+To sort and filter our data, we can use the Sort & Filter function in the Home tab or use the filter button on our table headers.
+
+Data can be sorted from smallest to largest or vice versa based on a single column or multiple columns. To sort based on multiple columns, we use the Custom Sort function where we can add levels to our sorting criteria and put them in the desired order.
+
+Filtering data is also useful for narrowing down certain data. When using Filter, we can check the boxes of the data that we want to show and leave the others unchecked to keep them hidden.
+
+### Video: Sort and Filter
+
+The following video will outline the steps to sort and filter the data within your worksheets. Sorting and filtering data is integral to the successful utilization of excel.
+
+{{< video https://www.youtube.com/watch?v=3EpolRYW5O0&t=1s >}}
+
+::: callout-tip
+# Practice: Sorting and filtering data
+
+Here is the file that was used in the videos: [Sort and Filter worksheet](/external_files/Sort_and_filter.xlsx)
+
+Try to do the following things:
+
+-   Add a filter button to headers
+-   Sort table based on largest to smallest height
+-   Sort table based on Species from A-Z, then by smallest to largest DBH, and by smallest to largest height
+
+Take a look at this file for an example of how you can do the above: [Sorted worksheet](/external_files/Sorted.xlsx)
+:::
+
+## 2.2.3 Improving Clarity and Visibility of Datasets - Data Dictionary
+
+Sometimes, we use technical abbreviations for our headers that might not be easily understood by the readers (e.g. MSP, MWMT). We want to let the readers know what these abbreviations mean, but including the whole description on our headers is just not practical. Instead, we add a data dictionary on the side that we can link the header to. For example, we can link MSP to "Mean summer precipitation (mm)" and MWMT to "Mean temperature of the warmest month (°C)."
+
+### Video: Linking Headers to Data Dictionary
+
+Using a data dictionary can help you keep track of the variables that you have manipulated within your worksheet. The following video will describe how to link headers to your data dictionary.
+
+{{< video https://www.youtube.com/watch?v=SgkVoOHrhog >}}
+
+## 2.2.4 Improving Clarity and Visibility of Datasets - Freeze Panes
+
+When we have a large dataset that exceeds the size of our screen, we might want to keep the header row(s) and/or the first column visible. Under the View tab, there is the Freeze Panes function that will allow us to do this.
+
+### Video: Freeze Panes
+
+Commonly found in downloadable public datasets, freeze panes is often used to make large datasets more legible and user friendly. The following video will help you learn how to apply freeze panes to your own data.
+
+{{< video https://www.youtube.com/watch?v=-GrpuHBJ0LI >}}
+
+## 2.2.5 Improving Clarity and Visibility of Datasets - Hiding and Grouping Columns/Rows
+
+With large datasets, we might also want to focus on certain rows/columns of data at a time without deleting the other columns So, instead of deleting the columns, we can either hide or group them, and then unhide or show them when necessary.
+
+### Video: Hiding and Grouping Columns/Rows
+
+The following video will help outline the process of hiding or grouping rows/columns in excel. This is helpful to organize data, but to also know how to unhide data if provided a worksheet with data hidden.
+
+{{< video https://www.youtube.com/watch?v=AIGGbG8XlJQ >}}
+
+::: callout-tip
+# Practice: Improving clarity and visibility of datasets
+
+Here is the file that was used in the videos: [Organize Data worksheet](/external_files/Organize_data.xlsx)
+
+Try to do the following things:
+
+-   Link headers to the data dictionary
+-   Pane header row(s) and first column
+-   Hide columns/rows
+-   Group columns/rows
+
+Take a look at this file [organize data worksheet](/external_files/Organize_data_example.xlsx) for an example of how you can do the above.
+:::

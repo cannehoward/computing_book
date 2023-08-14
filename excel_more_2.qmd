@@ -1,0 +1,34 @@
+# 3.1 Microsoft Excel Basics: Data Management {.unnumbered}
+
+## 3.1.1 Data Management Steps
+
+1)  Import the data
+2)  Sort the data
+3)  Identify cleaning steps
+4)  Remove duplicates and identify variables to clean
+
+In the previous module, we showed you how to import data in Excel and sort them by variables. Identifying cleaning steps depends on the nature of the data and its design. We can create some summary tables and graphs to find whether there are any ambiguous values or out-of-range data points. Sometimes we might also have duplicate observations in the data that we need to identify and eliminate from the dataset.
+
+## 3.1.2 Identify and remove duplicates
+
+We can identify duplicates in the data by using the logical formulas that we have learned before. There are two ways we can write the formulas:
+
+**1) Simply enter the formula, for example:**
+
+=IF(AND(E2=E3,F2=F3, G2=G3), "dup","unique")
+
+**2) Write the formula then select the formula & Ctrl+Shift+Enter, for example:**
+
+=IF(AND(E3:G3=E6:G6), "dup","unique")+Ctrl+Shift+Enter
+
+To eliminate the duplicates, we would need to use the "Remove Duplicates" tool on Excel that can be found under the Data tab.
+
+Data file: [Duplicate xlsx](/external_files/Duplicate.xlsx)
+
+Solution file: [Duplicate Solution xlsx](/external_files/Duplicate_solution.xlsx)
+
+### Video: Remove Duplicates
+
+The following video will teach you how to remove duplicates using formulas. Being able to remove duplicates quickly will enable you process data more efficiently.
+
+{{< video https://www.youtube.com/watch?v=uMSzsvJ08Yk >}}

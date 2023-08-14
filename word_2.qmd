@@ -1,0 +1,43 @@
+# 1.1 Document Processing {.unnumbered}
+
+Microsoft Word is a powerful tool for creating professional documents such as reports, proposals, and presentations. With its wide range of formatting and design options, you can easily create documents that are visually appealing and easy to read. Word provides a variety of tools for formatting text, including styles, fonts, and spacing options, which can be customized to meet your specific needs. In addition, Word has a range of features for inserting images, graphs, and other visual elements into your document, allowing you to create visually appealing and engaging content. Another useful feature of Word is its spell-check and grammar-check functions, which help you to eliminate errors and ensure that your document is of the highest quality. With these powerful tools and features, you can use Microsoft Word to prepare professional documents that are both informative and visually impressive.
+
+### Video: Introduction to Document Processing
+
+The following video will teach you how to create a new word document while also discussing the use and function of word processing, in general.
+
+{{< video https://www.youtube.com/watch?v=XlWYwo7B7UM&t=1s >}}
+
+## 1.1.1 Word Processing and Processor
+
+Word processing is the process of writing, editing, and producing documents (e.g., letters, reports, books) through the use of a computer program. A word processorLinks to an external site. is an electronic device or a computer software application that performs word processing as directed by the user (that is you!). This includes composition, editing, and formatting. Microsoft Word (MS Word) is probably one of the most widely used word processors. However, many other word processing applications exist such as WordPerfect and OpenOffice.org Writer. MS Word provides font applications (style & size), spell and grammar checking, access to a thesaurus, the ability to combine text with tables, charts, and pictures.
+
+MS Word structures documents hierarchically. At the top is the Word application itself, used to create, edit, and print documents. At the next level, MS Word has documents (=Word files). The Word application can have multiple Word documents open at the same time. Documents are organized in sections, each section consists of paragraphs, and each paragraph contains characters. Documents also contain headers, footers, tables, pictures, and additional features such as line and page numbers.
+
+## 1.1.2 Word Objects, Properties, Methods & Commands
+
+An object is an element of Word. This could be a document, a section, a paragraph, or a single character. Using properties and methods you can modify objects. A property is an attribute of an object or an aspect of its behavior. Examples of document properties are its file size and file name. Section properties describe the layout of the page (e.g., landscape vs. portrait orientation). Paragraph properties are its alignment (e.g., justified or centered) and the blank space before and after the paragraph. Properties of a character could be its font type and font size. By clicking on the Center icon (Home/Paragraph/Center) you give Word the command to change the alignment property of the paragraph to be 'centered.' A method is an action that an object can perform. Methods are performed by giving commands. To perform an action the computer application typically needs additional information from the user. For example, giving MS Word the command (Insert/Illustrations/Picture) will ask for the location of the picture. Giving the command (File/Save as/Word Document) will ask you to specify the file type and location.
+
+Commands are specific instructions given to a computer application to perform some kind of task or function. We often think of text-based computer commands, but clicking on an icon can also be a command.
+
+The Quick Access Toolbar and the Ribbon are the elements in Word's user interface that allow us to invoke commands by clicking on their icons.
+
+![Figure 1 - MS Word's toolbar and ribbon.](/images/1.png)
+
+The ribbon collects most of Word's commands together into related groups at two levels. At the top level are the tabs: FILE, HOME, INSERT, DESIGN, PAGE LAYOUT, REFERENCES, MAILINGS, REVIEW, and VIEW. Each tab contains command groups. There is no need to memorize all the word commands. MS Word provides help.
+
+## 1.1.3 Getting started with MS Word
+
+The FILE tab on the ribbon gives a list of options that lets you create a new document, open an existing document, save your document, and print your document. Create a new blank document and type in content (e.g., title, headings, normal text, and emphasized text). Each type of content can be associated with a distinctive style, which represents a set of formatting properties. For now, please stick to using the Styles group on the HOME tab of the ribbon. If the text you entered is the title, hit 'Title' in the Styles group. If the text you entered is a heading, hit 'Heading 1' in the Styles group. Don't worry, if the style is not to your liking at this point. You can change the styles to match your tastes afterward. Notice that every new paragraph will default to the style 'Normal.'
+
+There are two methods to format text in a word document. The one described above using 'Styles' or you can use commands from the 'Font' or 'Paragraph' groups in the HOME tab. The latter is referred to as manual formatting. Throughout this book we will try to avoid manual formatting unless it is to change or design a Style. Styles save time and make your document look good! The two basic advantages are consistent formatting and making changes easily in large documents.
+
+What if you don't like the MS Word defaults? After all, they are pretty hideous. You can change any individual style, create your own style, or assemble your own style set. There are different ways to change styles. You can use the Styles pull-down list to modify and add styles: Right-click on Style in the Styles pull-down list, click 'Modify' and make changes to your liking. Or you can use a default style and then manually format it to what you want it to look like. Manual formatting will create an 'augmented style.' To get rid of the augmentation, go to the Styles pull-down list and update the non-augmented style to match the selection (e.g., "Update Normal to Match Selection"). The augmented style will disappear from the Styles list. Note: if markers find augmented styles in your assignments, you lose points!
+
+## 1.1.4 Other Helpful Resources
+
+The following files may help you navigate MS Word better, if you are still having trouble. Specifically, learning shortcuts for copy and paste will allow you to edit documents quickly and efficiently.
+
+[MS Office Shortcuts PDF](/external_files/Microsoft_Office_Shortcuts.pdf)
+
+[More Information on Word Powerpoint](/external_files/Word_Processing_Tools.pptx)

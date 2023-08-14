@@ -1,0 +1,13 @@
+# Chapter 5: RStudio Basics: R as a Calculator & Data Handling in R
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Become familiar with writing programs in R and RStudio
+-   Become familiar with basic programming terminology and concepts
+-   Be capable users of the R, RStudio, and RMarkdown statistical package
+-   Become familiar with importing and exporting various data files in the R environment
+-   Summarize data in R
+-   Become familiar with calculation in R and creating variables
+-   Develop different types of objects and data in R

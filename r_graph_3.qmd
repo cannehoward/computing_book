@@ -1,0 +1,268 @@
+# 6.2 Graphs in R Markdown: Advanced Tools {.unnumbered}
+
+### Video: Graphs in R Markdown & Advanced Tools
+
+The following video will describe further tools to help build figures and graphs in RStudio. This includes how to save figures in multiple formats.
+
+{{< video https://www.youtube.com/watch?v=erl9fnE6ufE >}}
+
+## 6.2.1 Preparing directory and data setup
+
+Follow these steps:
+
+Step 1: Import the data "VRI_data.csv" and rename it as vri_data. Step 2: Use the attach function to mask all variable names to use these names directly.
+
+```{r,eval=FALSE}
+# current directory
+getwd()
+
+# Importing VRI data
+vri_data <- read.csv("VRI_data.csv", header = TRUE)
+
+# Listing all files in the directory
+dir()
+
+attach(vri_data)
+
+```
+
+## 6.2.2 Side by side graphs
+
+From the vri data, we want to compare the height trend of two species by looking at their graphs. For "PLC" species show the maximum height on the graph.
+
+Step 1: Create a separate data set for each species Step 2: Specify the margin to add space for two graphs side-by-side Step 3: Plot these two graphs Step 4: Select the maximum height from the "PLC" species and show it on the graph.
+
+```{r,eval=FALSE}
+
+# separating data by species
+d1<- subset(vri_data, (SPECIES_CD_1 =='CW'))
+d2<- subset(vri_data, (SPECIES_CD_1 =='PLC'))
+
+
+# controlling margins: specifying the margin using mai
+
+par(mfrow=c(1,2),mai=c(0.9,1.1,0.5,0.3), cex=1.0 ) # mai is the margin
+
+ylabel="Projected Height (m)"
+xlabel="Projected Age (years)"
+ylm=c(0,70)
+xlm=c(0,470)
+
+cxlb=1.5 # axis level - fontsize
+cxaxis=1 # axis fontsize
+maincx=2.5 # title font
+
+age=3 # age column number
+height=4 # height column number
+ldcex=1 # size of points
+ld=2 # line width of points, we are making it thicker to emphasis on this maximum height value 
+maxd1<- max(d2[,height])
+m1<-subset(d2, PROJ_HEIGHT_1==maxd1)
+
+
+# graph 1
+plot(d1[,age],d1[,height], type = "p", pch = 1, col = "black", main=" ", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab=ylabel)
+
+# graph 2
+plot(d2[,age],d2[,height], type = "p", pch = 2, col = "blue",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)
+points(m1[,age],m1[,height], type = "p", pch = 6, col = "red", lwd=ld, cex=ldcex)
+
+```
+
+## 6.2.3 Save graphics as a permanent file
+
+The side-by-side graphs you created above - we want to save it as an image in the folder where you kept this.RMD file. This is called "saving as a permanent" graph/file/image. We can save plots as permanent files in different formats in R. To save a plot as an image use the <code>png()</code> function and specify the name of the file in quotes (<code>file="name_of_new_file"</code>), the with and height of the graph (<code>with=</code> and <code>height=</code>), units (<code>units=</code>), and the resolution wanted for the plot (<code>res=</code>). Then use the <code>par()</code> function to define the number of subplots and margins. Finally, write the code for each of the graphs that you want to save and run all the chunks of code together. This will automatically create a png file with your graphs in your working directory.
+
+```{r,eval=FALSE}
+png("Graph2.png", width=15, height=10, units = 'in', res=1200)
+par(mfrow=c(1,2),mai=c(1.1,0.9,0.8,0.3), cex=1.0, xpd=NA) # mai is the margin
+# graph 1
+plot(d1[,age],d1[,height], type = "p", pch = 1, col = "black", main=" ", ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab=ylabel)
+
+# graph 2
+plot(d2[,age],d2[,height], type = "p", pch = 2, col = "blue",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)
+points(m1[,age],m1[,height], type = "p", pch = 6, col = "red", lwd=ld, cex=ldcex)
+
+graphics.off()
+```
+
+## 6.2.4 Another example to save a graph as a permanent file
+
+You can also save your plots as pdf files by using the <code>pdf()</code> function. To save multiple graphs use the <code>par()</code> function and define the order of your plots by using the function <code>plot()</code>. This will order the graphs from the top left to top right, bottom left, and bottom right in case of using four subplots. Use <code>mtext()</code> to add subtitles to each of your plots if desired.
+
+```{r,eval=FALSE}
+# Creating Data:
+x <- seq(0,3, length=100)  # vector with 100 values from 0 to 3
+
+# create three functions of x
+y1 <-  x^2+1
+y2 <- -x^2+9
+y3 <- sqrt(x)
+
+# saving as a pdf file
+pdf(file="Example_save.pdf")
+par(mfrow = c(2, 2),  	# 2 x 2 pictures on one plot
+          mar = c(4,4,2,2), 	# gives # of lines of margin on four sides of plot
+          # c(bottom, left, top, right)
+          pty = "s",	    	# square plotting region,
+          bg="lightyellow")	# set background color
+
+# top left:
+plot(x,y1)
+mtext("Function 1", side = 3, line = 0.2) # add title for top left panel
+
+# top right:
+plot(x,y2)
+mtext("Function 2", side = 3, line = 0.2)
+
+# bottom left:
+plot(x,y3)
+mtext("Function 3", side = 3, line = 0.2) 
+
+# bottom right:
+plot(x,y1, axes=FALSE,
+     ylim=c(0,10), xlim=c(0,3),
+     xlab = "", ylab = "", type="n")
+lines(x,y1, lty=2)
+lines(x,y2, lty=1, lwd=2)
+lines(x,y3, lty=4, lwd=3, col=2)
+
+axis(1)	# x-axis
+axis(2)	# y-axis
+
+mtext("x", side = 1, line = 3)
+mtext("y", side = 2, line = 3)
+
+box() 	# add frame around graph
+
+legend(0,6.5, c("function 1"," function 2","function 3"),
+       lty=c(2,1,4), lwd=c(1,2,3), col=c(1,1,2), cex = 0.9)
+
+mtext("All three functions", side = 3, line = 0.2)
+
+
+# You can also use:
+#dev.off() 
+graphics.off()
+
+
+
+# other examples are:
+#	postscript(file="filename.eps") 	Adobe PostScript file
+#	jpeg(file="filename.jpeg")		JPEG bitmap file
+
+
+```
+
+## 6.2.5 Add legends
+
+We can add legends to our plot by using the <code>legend()</code> function. In this function, we must first define the coordinates where we want to place our legend in the graph. We can do this by defining the specific coordinates in the x and y axes where we want to place the legend or by writing <code>"toprigth"</code> or <code>"topleft"</code> (e.g. <code>legend(0, 3.1)</code> or <code>legend("toprigth")</code>). Then, we define the name of items in the legend by using <code>c()</code> (e. g. <code>legend("toprigth", c("item1", "item2"))</code>). Finally, we can add more details to the graph by changing the colour or plot symbols and size. Make sure that the number of colors and symbols matches the number of items you want to show in your legend.
+
+```{r,eval=FALSE}
+d1<- subset(vri_data, (SPECIES_CD_1 =='CW'))
+d2<- subset(vri_data, (SPECIES_CD_1 =='PLC'))
+
+ylabel="Projected Height (m)"
+xlabel="Projected Age (years)"
+ylm=c(0,25)
+xlm=c(0,200)
+
+cxlb=1.5 # axis level - fontsize
+cxaxis=1.5 # axis fontsize
+maincx=1.5 # title font
+
+age=3 # age column number
+height=4 # height column number
+ldcex=3 # size ofpoints
+ld=2
+maxd1<- max(d2[,height])
+m1<-subset(d2, PROJ_HEIGHT_1==maxd1)
+par(mfrow=c(1,1), pty="s")
+# graph 1
+plot(d2[,age],d2[,height], type = "p", pch = 20, col = "blue",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)
+points(m1[,age],m1[,height], type = "p", pch =11, col = "red", lwd=ld)
+
+# Adding legend 
+legend(50, 20, c("Projected height: Species is 'CW'", "Maximum Projected Height"), col = c("blue", "red"), pch = c(20, 11), cex=.7, pt.cex=1.5)
+
+
+# Legend location: another procedure
+
+par(mfrow=c(1,1), pty="s") # mai is the margin
+
+# graph 1
+plot(d2[,age],d2[,height], type = "p", pch = 20, col = "blue",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)
+points(m1[,age],m1[,height], type = "p", pch =11, col = "red", lwd=ld)
+legend("topright", c("Projected height: Species is 'CW'", "Maximum Projected Height"), col = c("blue", "red"), pch = c(20, 11), cex=1, pt.cex=ld)
+
+```
+
+## 6.2.6 Adding more elements: Extra lines and texts on a graph
+
+To add extra lines to our plots we can use the <code>abline()</code> function. In this function we must state the type of line that we want, vertical or horizontal, and the coordinates where we want the line in the plot (<code>abline(v=coordinate_in_y\_axis)</code> or <code>abline(h(coordinate_in_x\_axis))</code>). Line types can be specified using <code>lty()</code>, use 0=blank lines, 1=solid lines(default), 2=dashed lines, 3=dotted lines, 4=dotdash lines, 5=longdash lines, and 6=twodash lines. Finally, add text to the graph using <code>text()</code>, specify first the coordinates where you want the text, and then write what you want to show on the graph.
+
+```{r,eval=FALSE}
+
+par(mfrow=c(1,1), pty="s") # mai is the margin
+
+# graph 1
+plot(d2[,age],d2[,height], type = "p", pch = 20, col = "blue",  ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis,  xlab=xlabel, ylab=ylabel)
+points(m1[,age],m1[,height], type = "p", pch =11, col = "red", lwd=ld)
+legend("topright", c("Projected height: Species is 'CW'", "Maximum Projected Height"), col = c("blue", "red"), pch = c(20, 11), cex=1, pt.cex=ld)
+# additional lines
+# add a vertical line at x=2
+abline(v=52, lty=2)
+
+# add a horizontal line at y=0
+abline(h=10)
+
+# abline(a,b) draws a line of slope b and intercept a
+
+
+# add text
+text(120,15,"Maximum Height")
+```
+
+## 6.2.7 Add a mathematical expression
+
+To add mathematical expressions use the <code>expression()</code> function. Define the mathematical expressions on label axes between quotes and tildes ( \~ ) (e.g. <code>expression( "Total volume("\~ m\^3 \~")")</code>).
+
+```{r,eval=FALSE}
+
+par(mfrow=c(1,1),mai=c(0.9,1.1,0.8,0.3), cex=1.0 ) # mai is the margin
+
+ylabel="Projected Volume(m3)"
+xlabel="Projected Age (years)"
+ylm=c(0,500)
+xlm=c(0,470)
+
+cxlb=2 # axis level - fontsize
+cxaxis=2.5 # axis fontsize
+maincx=2.5 # title font
+
+age=3 # age column number
+height=4 # height column number
+ldcex=2 # size ofpoints
+ld=2
+cx=2
+ft=4
+# graph 1
+plot(d1[,age],d1[,height], type = "p", pch = 1, col = "black", main=" ", 	ylim=ylm, xlim=xlm, cex=ldcex, cex.lab=cxlb, cex.axis=cxaxis, xlab=xlabel, ylab="")
+mtext(expression("Total volume ("~m^3~")"), side=2, line=3, las=0, cex=cx, font =ft)
+
+```
+
+::: callout-tip
+# Data Files:
+
+VRI data csv: [VRI Data](/external_files/VRI_data.csv)
+
+VRI data RData: [VRI RData](/external_files/VRI_data-2.RData)
+:::
+
+If the character/categorical variable is not producing the summary table as shown on the video then try the following:
+
+```{r echo= TRUE,eval=FALSE}
+summary(as.factor(SPECIES_CD_1))
+plot(as.factor(SPECIES_CD_1))
+```

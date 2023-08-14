@@ -1,0 +1,69 @@
+# 7.4 Visualizing Data in QGIS {.unnumbered}
+
+In GIS, we can change the visual appearance or symbology of both raster and vector data to better communicate information to the viewers. To do this in QGIS, we would right-click on a layer, select Properties, and click on the Symbology tab.
+
+For raster data, we can use multiple shades of a color to communicate changes in the values of a certain variable, with darker colors usually representing higher values. For example, we might use a light blue color to represent areas with low precipitation and dark blue color to represent areas with high precipitation. In QGIS, this can be done by selecting the singleband pseudocolor option in the Symbology tab.
+
+For vector data, we can use the same symbology for a certain feature, such as using a green circle to represent all of the individual tree point data that we have. We can also use different symbologies to represent different categories of a variable. For example, we can use different polygon colors or patterns to represent different categories of national parks in BC. In QGIS, this can be done by selecting the Categorized option in the Symbology tab. There are also various built-in symbology options that are available from the QGIS library (can be seen from "Favorites" at the bottom area of the Symbology tab).
+
+### Video: Symbology
+
+The following video will introduce you to how to change the symbology of your data layers.Becoming familiar with this process will be intergral to successfully utilizing QGIS.
+
+{{< video https://www.youtube.com/watch?v=U56Q8zGm36E >}}
+
+::: callout-tip
+# Sample Data
+
+Sample data from the video: [V6 V7 Symbology Project Zip](/external_files/V6_V7_Symbology_Project.zip)
+:::
+
+### Video: More Symbology
+
+The following video will continue to describe the process of changing your data's symbology within your map window.
+
+{{< video https://www.youtube.com/watch?v=6KK1weZ8UKY >}}
+
+::: callout-tip
+# Sample Data
+
+Sample data from the video: [V6 V7 Symbology Project Zip](/external_files/V6_V7_Symbology_Project.zip)
+:::
+
+## 7.4.1 Creating Maps in QGIS
+
+After analyzing spatial data, we would usually present them in the form of maps. There are 2 categories of maps: categorical maps (e.g. land use types, BEC zones) and quantity maps (e.g. temperature, population). We can create a map using the data from our QGIS project by going to Project \> New Print Layout.
+
+Important elements that you will need to add to your map include a title, legend, north arrow, scale bar, data sources, your name, and date on which the map was created. You can use frames to group map elements together or set the elements apart from the map background. You can also add an inset or a smaller map that shows the broader location of your area of study. For example, if Vancouver is your study area, you might add a small map of BC with Vancouver shown in a different color.
+
+Once you are done creating your map, you can export it as an image by going to Layout \> Export as Image or clicking on the Export as Image icon on the toolbar (next to the printer icon, looks like a paper with an image in the middle).
+
+### Video: Introduction to Map Elements
+
+The following video will introduce you to how to add elements to a layout page. This includes what elements are required to build an adequate map.
+
+{{< video https://www.youtube.com/watch?v=pvOvH5ePE-A >}}
+
+### Video: Adding map elements in QGIS
+
+The following video further adds to the elements that you will be required to add to your maps within map layout.
+
+{{< video https://www.youtube.com/watch?v=fVMiD-KK6rE >}}
+
+::: callout-tip
+# Sample Data
+
+Sample data from the video: [V6 V7 Symbology Project Zip](/external_files/V6_V7_Symbology_Project.zip)
+:::
+
+### Video: Save a Map on the Layout View
+
+Sometimes the last step of creating a map within QGIS, which is saving your map, can be a confusing task. The following video outlines how to properly save and/or export your map from layout.
+
+{{< video https://www.youtube.com/watch?v=KErn9rjtpWY >}}
+
+::: callout-tip
+# Sample Data
+
+Sample data from the video: [V6 V7 Symbology Project Zip](/external_files/V6_V7_Symbology_Project.zip)
+:::

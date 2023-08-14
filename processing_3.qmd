@@ -1,0 +1,49 @@
+# 8.2 More Geoprocessing Tools {.unnumbered}
+
+## 8.2.1 Clip
+
+The clip tool extracts a portion of the input feature that overlaps with the overlay layer. You can think of the overlay layer as the cookie cutter, the input feature as the dough, and the output feature as the cookie-shaped dough. This tool is especially useful when you want to focus on a certain study area or region. For example, you might have a layer containing all of the streets in Vancouver and a polygon layer of UBC. You can then overlay the UBC polygon layer on top of the Vancouver street layer to get only the streets at UBC.
+
+### Video: Clip
+
+The following video provides an overview of how to use the clip tool.
+
+{{< video https://www.youtube.com/watch?v=a3nrvwrMRo8 >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::
+
+## 8.2.2 Difference
+
+The difference tool is the opposite of the clip tool - it keeps only the portion of the input feature that does not overlap with the overlay feature. So, back to the cookie dough analogy, the output feature would be similar to that of the leftover dough with a cookie-shaped hole in the middle. For example, we might have a layer of forest plots and another layer of buffer zones where logging is prohibited. We can use the forest plots as the input layer and the buffer zones as the overlay layer to get an output layer containing only the areas where logging is allowed.
+
+### Video: Difference
+
+The following video provides an overview of how to use the difference tool.
+
+{{< video https://www.youtube.com/watch?v=ljjtMk_Y6Ag >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::
+
+## 8.2.3 Split
+
+The split tool in QGIS divides up the data in a vector layer based on certain attributes. For example, if you have a polygon layer of Vancouver, you can split the polygon based on Vancouver's local areas (e.g. Kitsilano, Arbutus-Ridge, Downtown). You will then get several polygon layers corresponding to each local area in Vancouver.
+
+### Video: Split
+
+The following video provides an overview of how to use the split tool.
+
+{{< video https://www.youtube.com/watch?v=uvExJt_XJGA >}}
+
+::: callout-tip
+# Sample data
+
+Sample data from the video: [V8 Geoprocessing Inputs Zip](/external_files/V8_Geoprocessing_Inputs_Only.zip)
+:::

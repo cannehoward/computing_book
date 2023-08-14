@@ -1,0 +1,51 @@
+# 4.2 Making Changes to PivotTable and Chart {.unnumbered}
+
+## 4.2.1 Making Changes to PivotTable in Excel
+
+After you have created a PivotTable, you might want to either add/remove a column or row, change the order of rows or columns, or modify the report layout. Some of the fairly common situations that I have encountered are:
+
+-   Change the field arrangement in a PivotTable report
+-   Change the order of row or column items
+-   Change how errors and empty cells are displayed
+
+It is important that you try moving around the fields between different areas or change the order of fields within an area to understand the results of these changes. Remember that changing the PivotTable will not affect your original dataset!
+
+### Video: Making Changes to Pivot Table in Excel
+
+Pivot Tables are very flexible and can allow you to easily make changes to their structure. The following video will describe how to make structural changes to your tables.
+
+{{< video https://www.youtube.com/watch?v=b26447aEXss >}}
+
+::: callout-tip
+# Sample Data:
+
+Sample data from the video: [Treatment Data](/external_files/Treatment_rep_data_2.xlsx)
+:::
+
+## 4.2.2 Selecting Certain Variables and Keeping the Original PivotTable and Chart
+
+Sometimes, you might want to create a PivotChart that only shows some of the variables from your PivotTable but still keep the original (complete) PivotTable. You will see that changing the PivotChart will also change the PivotTable, which is not what you want. Copy-pasting only the PivotChart and then changing this new PivotChart will still alter the original PivotTable. So, to keep the original PivotTable, you will have to copy-paste the PivotTable to a new location, select the variables that you want to keep, and then create a PivotChart based on the new PivotTable.
+
+### Video: Selecting Certain Variables
+
+Selecting certain variables in a Pivot Table allows you to quickly change the format of a table. The following video will show you how to select and deselect certain variables.
+
+{{< video https://www.youtube.com/watch?v=2rI38fKR9ZQ >}}
+
+::: callout-tip
+# Sample Data 
+
+Sample data from the video: [Treatment Data](/external_files/Treatment_rep_data_2.xlsx)
+:::
+
+## 4.2.3 Defer Layout Update in PivotTable in Excel (Windows only)
+
+It takes a lot of time to apply any changes to a large dataset. To make changes on your PivotTable without applying them right away, you can select "Defer Layout Update" and manually apply the update by clicking on the "Update" tab.
+
+{{< https://www.youtube.com/watch?v=c09oh3sx9IU >}}
+
+::: callout-tip
+# Sample Data 
+
+Sample data from the video: [Large Data Example](/external_files/large_data_example.xlsx)
+:::

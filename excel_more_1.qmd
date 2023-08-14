@@ -1,0 +1,11 @@
+# Chapter 3: Excel Data Management and More Tools
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Become familiar with charts and graphs
+-   Calculate: frequency and find random numbers
+-   Eliminating duplicates
+-   Perform debugging and tracing on formulas
+-   Understand Excel limitations

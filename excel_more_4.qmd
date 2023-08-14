@@ -1,0 +1,46 @@
+# 3.3 Excel Graphs {.unnumbered}
+
+## 3.3.1 Useful things to know about Excel charts
+
+You can either embed your chart on the worksheet that contains your data or you can save the charts on a separate sheet after you created it. You can even customize a chart as a chart template so that you don't have to do the same formatting steps over and over again if you need to create the same type of plot for multiple data sets. Excel provides lots of other chart types that I decided not to discuss in this chapter.
+
+## 3.3.2 Frequency Table Formula
+
+We can create a Pivot Table or use a count formula to find the frequency for each group in grouped data.
+
+Frequency example: [Frequency example xlsx](/external_files/Frequency.xlsx)
+
+### Video: Creating a Frequency Table Using the COUNTIF Formula
+
+The following video will go over an example of how to create a frequency table within excel. Not all data will come with frequencies already calculated, so knowing how to add this yourself can be important.
+
+{{< video https://www.youtube.com/watch?v=cWGekkIWgcQ >}}
+
+## 3.3.3 Random Number Generation
+
+In Excel, we can generate a random number using the RAND() formula. From a bigger data/table in Excel, we can select samples randomly and create a sample table.
+
+Data file: [Random Generation xlsx](/external_files/Example_Data_random_generation.xlsx)
+
+Solution file: [Random Generation Solution xlsx](/external_files/Example_Data_random_generation_Solution.xlsx)
+
+### Video: Generating Random Numbers Using the RAND() Formula
+
+The following video will show you how to generate random numbers within excel. Many software programs will allow you to generate random numbers, and knowing how to accomplish this in each program will help you become proficient.
+
+{{< video https://www.youtube.com/watch?v=H2f8pt-HVzU >}}
+
+## 3.3.4 Professional Formatting
+
+Try downloading this file and formatting it: [Excel Organization xlsx](/external_files/Excel_organization.xlsx)
+
+Here is an example of the formatted data: [Excel Organization Formatted xlsx](/external_files/Excel_organization_formatted_2.xlsx)
+
+## 3.3.5 Tracing Formulas
+
+Tracing formulas example: [Tracing Formulas xlsx](/external_files/Trace_formatted.xlsx)
+
+1)  Check Tracing formulas
+2)  Remove Arrows
+3)  Show formulas
+4)  Evaluate Formulas: Nested items

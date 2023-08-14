@@ -1,0 +1,12 @@
+# Chapter 2: Microsoft Excel Basics and Data Handling
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Know the basics of Microsoft Excel
+-   Import different file types into Microsoft Excel
+-   Input and organize data and ranges in an Excel spreadsheet
+-   Format your Excel spreadsheet professionally
+-   Use different types of formulas, including simple math, conditional, logical, and lookup formulas
+-   Combine and create auto-adjusted formulas

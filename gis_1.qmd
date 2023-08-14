@@ -1,0 +1,12 @@
+# Chapter 7: Manage and Analyze Geodata
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Understand sources of input data and GIS data types
+-   Create a QGIS project and navigate through QGIS
+-   Change the Coordinate Reference System (CRS) in QGIS
+-   Changing symbology in QGIS
+-   Use attribute tables in QGIS
+-   Create maps in QGIS

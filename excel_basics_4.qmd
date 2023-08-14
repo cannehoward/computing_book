@@ -1,0 +1,73 @@
+# 2.3 Excel Formulas: Basic and Advanced Techniques {.unnumbered}
+
+## 2.3.1 Define Name
+
+Using this function, we can give a name to a certain cell/range of data and easily refer to them later in our formulas. Defined names can be seen and edited in the Name Manager. Aside from using the Define Name function, we can also give a name to a cell/range by selecting the cell/range and typing the cell/range name into the name box.
+
+### Video: Define Name
+
+The following video outlines how to define names of cells or ranges of cells. This allows for you to reference these cells by name (instead of cell number) within your functions.
+
+{{< video https://www.youtube.com/watch?v=ZjTSQnGitCc >}}
+
+::: callout-tip
+# Practice
+
+Use this file [formulas worksheet](/external_files/Formulas_Part1.xlsx) to practice each formula in this part (Further instructions are found under each formula).
+:::
+
+## 2.3.2 Basic Formulas
+
+All formulas in Excel start with an equals sign (=). We can make formulas using the usual math operators (+ - / \* \^) or by using Excel syntaxes (e.g. EXP, SUM, AVERAGE). Formulas come with guides under them that show us how to create the formulas (e.g. POWER(number, power) means me should put the number first, then the power that we want to raise that number to). There are also some formulas like PI() that can generate a number by itself (e.g. 3.1415 ... for PI()) and don't require us to insert any number inside the parenthesis.
+
+### Video: Basic Formulas
+
+This video outlines the commonly used mathematical operators within excel. Being familiar with these operators will allow for you to create your own flexible formulas and functions within excel.
+
+{{< video https://www.youtube.com/watch?v=DdoEW0Coutc >}}
+
+::: callout-tip
+# Practice: Basic Formulas
+
+Go to the first worksheet ("Simple") and practice filling in the table of basic math formulas.
+
+[Solution File worksheet](/external_files/Formulas_Part1_Solutions.xlsx)
+:::
+
+## 2.3.4 Math formulas with conditions
+
+We can add one or more conditions to the usual math formulas, SUM, AVERAGE, and COUNT, by using SUMIF(S), AVERAGEIF(S), and COUNTIF(S) instead.
+
+We use SUMIF, AVERAGEIF, and COUNTIF for calculations with only one condition, and use SUMIFS, AVERAGEIFS, and COUNTIFS for those with two or more conditions.
+
+### Video: Formulas with Conditions
+
+Creating formulas with conditions allows for a subset of your data to be used. Watch this video to see how they are used:
+
+{{< video https://www.youtube.com/watch?v=azuMY1anMGw >}}
+
+::: callout-tip
+# Practice: Math formulas with conditions
+
+Go to the second worksheet ("Conditions") and try to answer the 5 questions using SUMIF(S), AVERAGEIF(S), and COUNTIF(S).
+
+[Solution File worksheet](/external_files/Formulas_Part1_Solutions.xlsx)
+:::
+
+## 2.3.5 Logical Formulas
+
+Logical formulas are useful tools for analyzing and comparing data. Some of the commonly used formulas are IF, AND, OR, and NOT.
+
+### Video Logical Formulas
+
+The following video describes commonly used formulas that are logical in nature. IF statements are common throughout many coding languages, therefore becomign familiar with them through excel will be beneficial for other applications.
+
+{{< video https://www.youtube.com/watch?v=G2ajEKB2VGw >}}
+
+::: callout-tip
+# Practice: Logical formulas
+
+Go to the third worksheet ("Logical") and try to answer the questions for IF, AND, OR, and NOT.
+
+[Solution File worksheet](/external_files/Formulas_Part1_Solutions.xlsx)
+:::

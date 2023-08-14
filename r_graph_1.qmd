@@ -1,0 +1,10 @@
+# Chapter 6: Graphical Presentation in RMarkDown
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Be able to create scatter plots, line graphs, bar graphs, pie charts, and histograms and the different functions and arguments involved on R
+-   Familiar with handling and customizing parameters in plot function and creating publication-quality graphs on R
+-   Be familiar with creating side-by-side graphs on R
+-   Exporting the created graphs on R as images or pdf files

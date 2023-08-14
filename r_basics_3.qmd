@@ -1,0 +1,94 @@
+# 5.2 What is RStudio? {.unnumbered}
+
+RStudio gives us a way to talk to our computers. R gives us the language to communicate in. If you open R directly, you only have access to a very basic text editor. RStudio is an integrated development environment (IDE) that provides you with a more powerful text editor (e.g., different code pieces are represented in different colours). I chose to use RStudio in this class because I think that it will help with your first steps into the programming realm. RStudio is not the only avaiable IDE. Other examples are Revolution-R, Livve-R, Tinn-R, Emacs + ESS.
+
+To get started in RStudio, just click on the program icon and open it up like any other computer application you have used so far. A window will open that looks like this:
+
+![Figure 10 - A RStudio window, including script, workspace, console, and files.](/images/r_basics_1.png)
+
+RStudio provides 4 main windows:
+
+-   Script viewer (top left)
+-   Console (bottom left)
+-   Workspace including Environment, History, and connections (top right)
+-   Files, Plots, Packages, and Help (bottom right)
+
+## 5.2.1 What is R Markdown?
+
+R Markdown is a package that we can use in RStudio. It is a powerful package that allows us to write codes and non-codes in the same document, as well as knit our codes to more accessible file type such as Word, HTML, and PDF. Files that we save from RStudio when we are using R Markdown have an Rmd extension, which stands for, you guessed it, R Markdown!
+
+Details to writing and formatting an R document in RMarkdown: [RMarkdown Tutorial](/external_files/RMarkdown_Tutorial_1.pdf)
+
+**R Markdown initiate for RStudio Cloud users:**
+
+Go to "File\> new file\> R Markdown". A bunch of packages will be updated, say 'yes' to updated latest packages.
+
+**Example code that you can use to explore RStudio and R Markdown:**
+
+You can copy the following code chunks directly into an RMarkdown file to practice **(click on "Show the code")**:
+
+```{r echo= TRUE,eval=FALSE}
+---
+title: "R Notebook"
+output:
+  word_document: default
+  pdf_document: default
+  html_notebook: default
+---
+
+# This is an R Notebook. You can use it to take notes and run code.
+
+# You can write code in chunks that look like this.
+# This chunk uses some code from base R to plot a data set.
+# To run the code, change the eval argument to "eval=TRUE", and then click the Green play button to the right. Try it!
+plot(cars)
+```
+
+The results of a code chunk will appear beneath the chunk. You can click the x above the results to make them go away, but let's not do that.
+
+You can open a new R Notebook by going to **File > New File > R Notebook**.
+
+## 5.2.2 Adding Chunks
+
+To add a new chunk, press *Cmd+Option+I* (*Ctrl+Alt+I* on Windows), or click the *Insert* button at the top of this document, then select *R*. 
+
+For now, you should place all of your R code inside of code chunks.
+
+You can click the downward facing arrow to the left of the play button to run every chunk above the current code chunk. This is useful if the code in your chunk depends on the code in previous chunks. For example, if you use an object or data set made in a previous chunk.
+
+## 5.2.3 HTML version
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it. This makes a nice, polished report of your work to share.
+
+Click the *Preview* button at the top of this document or press *Cmd+Shift+K* (*Ctrl+Shift+K* on Windows) to preview the HTML file. Try clicking *Preview* now.
+
+## 5.2.4 Packages
+
+You can immediately run any function from base R within a notebook, But if you'd like to run a function that comes in an R package, you will need to first load the package in the notebook.
+
+You'll need to reload your packages every time you begin a new notebook.
+
+::: callout-tip
+# Practice
+
+In a new Rmd file, insert a new code chunk and copy and following calculations **(click on "Show the code")**:
+
+```{r echo= TRUE,eval=FALSE}
+x <- 32
+y <- 5
+x
+y
+d <- x + y
+d
+plot(x,y)
+```
+
+-   save the document
+-   give this chunk a heading "Basic function" (using \# outside of the code chunk)
+-   run the code chunk
+-   knit the Rmd file into a Word file (if you can't knit the file, you should review your code to identify the error)
+:::
+
+## 5.2.5 Getting help on R
+
+Whenever you have a question about a particular function in R, you should access the built-in help that R provides using the '?' command. To get help with the mean() function, type ?mean into the R Console and hit Enter. The help page provides a description of the function, an example of how it is used, and a list and description of the arguments that are required or optional. The help typically lists references that the function was based on and at the very bottom it has 'See Also' and 'Examples' sections, in which you can find information about related functions and examples of how to use the function, respectively.

@@ -1,0 +1,10 @@
+# Chapter 4: Excel PivotTable and Chart
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Become familiar with summarizing data using Pivot Table
+-   Summarize data using Pivot Chart
+-   Create Pivot Table and Chart together
+-   Alter Pivot Tables and Charts

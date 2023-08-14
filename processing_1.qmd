@@ -1,0 +1,15 @@
+# Chapter 8: Geoprocessing Tools in GIS
+
+## Learning Objectives
+
+After studying this chapter you should be able to:
+
+-   Understand the different geoprocessing tools in GIS
+-   Use geoprocessing tools in QGIS:
+    -   Dissolve
+    -   Buffer
+    -   Clip
+    -   Union
+    -   Intersection
+    -   Difference
+    -   Split

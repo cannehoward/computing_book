@@ -1,0 +1,59 @@
+# 7.3 Initiating a QGIS Project {.unnumbered}
+
+Before creating a new GIS project, we need to explore the data that we will be analyzing. You will see that a folder of GIS data contains numerous data of various formats. For example, vector data on a particular object will at least have an .shp file (the main file containing the points, lines, and polygons), an .shx file (an index file), and a .dbf file (a database file containing attributes of the object). Thus, it is important that we organize our data properly to ensure an efficient work process.
+
+Once you have a created a new project in QGIS, you can easily locate your data files by adding them to Favorites. To do this, right-click Favorites, click add a directory, and select the folder containing the data that you are working on.
+
+There are 2 ways to add data to your project. You can click on the Data Source Manager (icon on the upper-left corner that looks like 3 stacked papers) and choose to import raster or vector data. You can also expand the folder that you have put in Favorites and drag the files to the display window.
+
+### Video: Start New Project in QGIS
+
+The following video will describe the process of creating a new project, locating data, and saving the project within QGIS. This is a process that you will use every time you need to analyse new data within QGIS.
+
+{{< video https://www.youtube.com/watch?v=d_7HBGrMkVk >}}
+
+::: callout-tip
+# Sample data:
+
+Sample data from the video: [V1 Start New Project Zip](/external_files/V1_Start_New_Project.zip)
+:::
+
+## 7.3.1 Navigating through QGIS
+
+You can navigate within QGIS using various pan and zoom tools. To move the map around, you can use the pan tool that is symbolized by a hand icon. There are several zoom options (magnifying glass icon) that are available, such as zoom in, zoom out, zoom full, zoom to layer, and zoom to native resolution. Zoom full allows us to see all of the layers in a project. Zoom to layer allows us to see the selected layer and can be especially useful when the layer goes missing in the display window (this usually happens when we moved the map around too much).
+
+### Video: Basic Visualization Tools in QGIS
+
+The QGIS environment can be confusing at first. The following video will describe how to better navigate your data within QGIS.
+
+{{< video https://www.youtube.com/watch?v=evgWK64INmk >}}
+
+::: callout-tip
+# Sample data:
+
+Sample data from the video: [V1 Start New Project Zip](/external_files/V1_Start_New_Project.zip)
+:::
+
+## 7.3.2 Changing the Coordinate Reference System (CRS) in QGIS
+
+When we are working with maps, we are essentially working with projections of the earth that transforms the earth's spherical shape into a flat shape. A coordinate reference system (CRS) tells us how locations on a map projection relate to real locations on the earth's surface and is therefore important for our spatial data analysis.
+
+However, the data that we are working on might not contain information on the coordinate reference system that was used and so we would need to set the CRS manually. To set the CRS of a layer in QGIS, we would need to enter the EPSG code for our area of study which can be found on this [website](https://epsg.io/).
+
+### Video: Changing Coordinate Reference System
+
+The following video will help you change the coordinate reference system within QGIS. Not only is it important to know how to do this to visualize your data correctly, it can also affect the accuracy of your analyses.
+
+{{< video https://www.youtube.com/watch?v=ebZ40bFfZWc >}}
+
+::: callout-tip
+# Sample data:
+
+Sample data from the video: [V1 Start New Project Zip](/external_files/V1_Start_New_Project.zip)
+:::
+
+::: callout-tip
+# Note
+
+For our dataset from Ecuador, we selected WGS 84 / UTM zone 17S (EPSG:32717)
+:::

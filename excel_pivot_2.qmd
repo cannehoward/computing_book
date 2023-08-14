@@ -1,0 +1,51 @@
+# 4.1 General Features of PivotTable and Chart {.unnumbered}
+
+## 4.1.1 PivotTable
+
+A PivotTable is a special type of data summary table in Excel. PivotTables allow us to easily summarize and analyze data by categories or groups with just a few clicks without entering any formulas. This tool is much more efficient than creating summary tables 'manually' in Excel, which would require highlighting specific data ranges and entering formulas repeatedly.
+
+PivotTable vs. normal table: [Pivot Table Sample](/external_files/PivotTable_Sample.xlsx)
+
+## 4.1.2 Creating PivotTable
+
+To create a PivotTable, click on one cell in the data table that you want to summarize, click on the PivotTable button under the INSERT tab, and specify the contents (Table/Range) and location using the dialogue box that opens up. Then, you can manually determine the table layout using the PivotTable Field List.
+
+The PivotTable Field List contains two sections: 1) the field section, which contains the names of the fields you can add to the layout section, and 2) the layout section. The Layout section contains 4 areas: a) Filter, b) Columns, c) Rows, and d) Values.
+
+To place a field in a specific area of the layout section, you can right-click on the field name in the field section and choose where to add it in the layout section. Alternatively, you can click and drag the field names into the desired area in the layout section. The key with PivotTables is really to play around with different table layout options until you get what you want, so don't be afraid to try different layouts, especially since your original data will be preserved even when you modify your PivotTable.
+
+To delete a PivotTable, click anywhere on your table, press Ctrl+A (or Cmd+A in Mac), and then press the delete key on your keyboard.
+
+## 4.1.3 Changing Value Field Settings and Table Design
+
+By default, Excel summarizes the selected data as totals using the SUM function. To select the type of calculation that you want for each variable (e.g., Average, Count, Minimum, or Maximum), click on the variable in the Values area and choose 'Value Field Settings' in the drop-down menu. You can also find the option to do this in the Active Field group under the ANALYZE tab in the PivotTable Tools that opens up whenever you click a cell within the PivotTable.
+
+The second tab in the PivotTable Tools is the DESIGN tab that allows you to modify some of the table layout options. In the Layout group, you can choose to include subtotals and/or grand totals in your PivotTable. You can also add Styles to your PivotTable.
+
+## 4.1.4 PivotChart
+
+You can generate PivotCharts to go along with the PivotTables that you create. To create a PivotChart, you can follow the same steps as creating 'normal' charts: click the PivotTable that you want to graph, go to the Charts group under the INSERT tab and choose the appropriate chart type. Alternatively, you can click on the PivotTable, go to the Tools group on the ANALYZE tab, and click on PivotChart.
+
+Excel will create a PivotChart that contains a field list similar to that of the PivotTable with 4 fields: Filters, Legend (Series), Axis (Categories), and Values. The LAYOUT tab under PivotChart Tools is similar to the one you have seen before for the 'normal' charts. In this tab. you will find all the options to add and modify the chart axes, legend, titles, etc.
+
+Additional examples: [Example fish data](/external_files/Example_fish_data.pdf)
+
+Fish data: [Fish data](/external_files/Fish_data.xlsx)
+
+### Video: Summarizing Data Using PivotTable and PivotChart
+
+Creating a PivotTable within excel can be confusing at first, but it can be a powerful tool to quickly find summaries within your data. The following video will show you how to create PivotTables.
+
+{{< video https://www.youtube.com/watch?v=cTTWRbV7QCE >}}
+
+::: callout-tip
+# Practice Items:
+
+-   Summarize the data for species (group by species) and show the number of species in each species group.
+-   Show the distribution of DBH of trees
+-   Summarize DBH and Height by Species
+
+Sample data: [Excel organization](/external_files/Excel_organization_formatted.xlsx)
+
+Solution: [Pivot Table Solution](/external_files/Pivot_solution_1.xlsx)
+:::
