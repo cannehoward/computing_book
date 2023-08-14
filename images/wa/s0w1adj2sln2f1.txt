@@ -1,0 +1,132 @@
+Values are:
+	Point Estimate (Monte Carlo Standard Error)
+
+Non-missing point estimates/standard errors:
+ PS.u SL.u TMLE.u PS.kitchen.sink hdPS LASSO hdPS.LASSO SL.kitchen.sink hdPS.SL
+  500  500    500             500  500   500        500             500     500
+ LASSO.SL hdPS.LASSO.SL TMLE.kitchen.sink hdPS.TMLE LASSO.TMLE hdPS.LASSO.TMLE
+      500           500               500       500        500             500
+ DC.TMLE.kitchen.sink
+                  500
+
+Average point estimate:
+   PS.u   SL.u TMLE.u PS.kitchen.sink    hdPS   LASSO hdPS.LASSO SL.kitchen.sink
+ 0.0508 0.0519 0.0571         -0.0069 -0.0080 -0.0062    -0.0078         -0.0044
+ hdPS.SL LASSO.SL hdPS.LASSO.SL TMLE.kitchen.sink hdPS.TMLE LASSO.TMLE hdPS.LASSO.TMLE
+ -0.0065  -0.0045       -0.0066            0.0004   -0.0006     0.0002         -0.0008
+ DC.TMLE.kitchen.sink
+               0.0016
+
+Median point estimate:
+   PS.u   SL.u TMLE.u PS.kitchen.sink    hdPS   LASSO hdPS.LASSO SL.kitchen.sink
+ 0.0514 0.0520 0.0576         -0.0065 -0.0072 -0.0061    -0.0077         -0.0040
+ hdPS.SL LASSO.SL hdPS.LASSO.SL TMLE.kitchen.sink hdPS.TMLE LASSO.TMLE hdPS.LASSO.TMLE
+ -0.0056  -0.0045       -0.0062            0.0004   -0.0004     0.0000         -0.0005
+ DC.TMLE.kitchen.sink
+               0.0022
+
+Average variance:
+   PS.u   SL.u TMLE.u PS.kitchen.sink   hdPS  LASSO hdPS.LASSO SL.kitchen.sink hdPS.SL
+ 0.0003 0.0003 0.0001          0.0002 0.0002 0.0002     0.0002          0.0001  0.0002
+ LASSO.SL hdPS.LASSO.SL TMLE.kitchen.sink hdPS.TMLE LASSO.TMLE hdPS.LASSO.TMLE
+   0.0001        0.0002            0.0000    0.0000     0.0000          0.0000
+ DC.TMLE.kitchen.sink
+               0.0001
+
+Median variance:
+   PS.u   SL.u TMLE.u PS.kitchen.sink   hdPS  LASSO hdPS.LASSO SL.kitchen.sink hdPS.SL
+ 0.0003 0.0003 0.0001          0.0002 0.0002 0.0002     0.0002          0.0001  0.0002
+ LASSO.SL hdPS.LASSO.SL TMLE.kitchen.sink hdPS.TMLE LASSO.TMLE hdPS.LASSO.TMLE
+   0.0001        0.0001            0.0000    0.0000     0.0000          0.0000
+ DC.TMLE.kitchen.sink
+               0.0001
+
+Bias in point estimate:
+            PS.u            SL.u          TMLE.u  PS.kitchen.sink             hdPS
+ 0.0508 (0.0008) 0.0519 (0.0007) 0.0571 (0.0007) -0.0069 (0.0007) -0.0080 (0.0007)
+            LASSO       hdPS.LASSO  SL.kitchen.sink          hdPS.SL         LASSO.SL
+ -0.0062 (0.0007) -0.0078 (0.0007) -0.0044 (0.0006) -0.0065 (0.0006) -0.0045 (0.0006)
+    hdPS.LASSO.SL TMLE.kitchen.sink        hdPS.TMLE      LASSO.TMLE  hdPS.LASSO.TMLE
+ -0.0066 (0.0006)   0.0004 (0.0005) -0.0006 (0.0005) 0.0002 (0.0005) -0.0008 (0.0005)
+ DC.TMLE.kitchen.sink
+      0.0016 (0.0005)
+
+Empirical standard error:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.0172 (0.0005) 0.0158 (0.0005) 0.0148 (0.0005) 0.0150 (0.0005) 0.0149 (0.0005)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.0148 (0.0005) 0.0147 (0.0005) 0.0132 (0.0004) 0.0133 (0.0004) 0.0131 (0.0004)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.0132 (0.0004)   0.0108 (0.0003) 0.0110 (0.0003) 0.0110 (0.0003) 0.0112 (0.0004)
+ DC.TMLE.kitchen.sink
+      0.0115 (0.0004)
+
+% gain in precision relative to method PS.u:
+            PS.u             SL.u           TMLE.u  PS.kitchen.sink             hdPS
+ 0.0000 (0.0000) 19.2863 (3.5261) 34.8501 (5.5780) 31.3602 (8.6840) 33.3959 (8.6698)
+            LASSO       hdPS.LASSO   SL.kitchen.sink           hdPS.SL
+ 35.0692 (8.7842) 36.6743 (8.8124) 69.7554 (10.9076) 67.6831 (10.6849)
+          LASSO.SL     hdPS.LASSO.SL  TMLE.kitchen.sink          hdPS.TMLE
+ 72.7054 (11.0312) 70.0197 (10.7671) 152.2093 (16.5589) 146.7174 (16.2364)
+         LASSO.TMLE    hdPS.LASSO.TMLE DC.TMLE.kitchen.sink
+ 143.9041 (16.5036) 137.3883 (15.7345)   123.5590 (13.3188)
+
+Mean squared error:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.0029 (0.0001) 0.0029 (0.0001) 0.0035 (0.0001) 0.0003 (0.0000) 0.0003 (0.0000)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.0003 (0.0000) 0.0003 (0.0000) 0.0002 (0.0000) 0.0002 (0.0000) 0.0002 (0.0000)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.0002 (0.0000)   0.0001 (0.0000) 0.0001 (0.0000) 0.0001 (0.0000) 0.0001 (0.0000)
+ DC.TMLE.kitchen.sink
+      0.0001 (0.0000)
+
+Model-based standard error:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.0166 (0.0000) 0.0159 (0.0000) 0.0089 (0.0000) 0.0124 (0.0000) 0.0127 (0.0000)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.0124 (0.0000) 0.0126 (0.0000) 0.0122 (0.0000) 0.0124 (0.0000) 0.0121 (0.0000)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.0123 (0.0000)   0.0067 (0.0000) 0.0067 (0.0000) 0.0066 (0.0000) 0.0067 (0.0000)
+ DC.TMLE.kitchen.sink
+      0.0082 (0.0000)
+
+Relative % error in standard error:
+             PS.u            SL.u            TMLE.u   PS.kitchen.sink              hdPS
+ -3.4159 (3.0602) 0.7218 (3.1886) -39.6424 (1.9113) -17.5912 (2.6156) -15.0536 (2.6955)
+             LASSO        hdPS.LASSO  SL.kitchen.sink          hdPS.SL         LASSO.SL
+ -16.6398 (2.6449) -14.3569 (2.7170) -7.7300 (2.9222) -7.0918 (2.9427) -7.8787 (2.9173)
+    hdPS.LASSO.SL TMLE.kitchen.sink         hdPS.TMLE        LASSO.TMLE
+ -7.1847 (2.9394) -38.5247 (1.9470) -38.5815 (1.9451) -40.0216 (1.8996)
+   hdPS.LASSO.TMLE DC.TMLE.kitchen.sink
+ -40.0347 (1.8992)    -28.7664 (2.2553)
+
+Coverage of nominal 95% confidence interval:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.1620 (0.0165) 0.1060 (0.0138) 0.0020 (0.0020) 0.8540 (0.0158) 0.8540 (0.0158)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.8740 (0.0148) 0.8600 (0.0155) 0.9120 (0.0127) 0.8920 (0.0139) 0.9080 (0.0129)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.8920 (0.0139)   0.7640 (0.0190) 0.7660 (0.0189) 0.7600 (0.0191) 0.7640 (0.0190)
+ DC.TMLE.kitchen.sink
+      0.8360 (0.0166)
+
+Bias-eliminated coverage of nominal 95% confidence interval:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.9420 (0.0105) 0.9640 (0.0083) 0.7460 (0.0195) 0.8940 (0.0138) 0.8920 (0.0139)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.8940 (0.0138) 0.8980 (0.0135) 0.9220 (0.0120) 0.9220 (0.0120) 0.9160 (0.0124)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.9200 (0.0121)   0.7680 (0.0189) 0.7740 (0.0187) 0.7620 (0.0190) 0.7640 (0.0190)
+ DC.TMLE.kitchen.sink
+      0.8300 (0.0168)
+
+Power of 5% level test:
+            PS.u            SL.u          TMLE.u PS.kitchen.sink            hdPS
+ 0.8380 (0.0165) 0.8940 (0.0138) 0.9980 (0.0020) 0.1460 (0.0158) 0.1460 (0.0158)
+           LASSO      hdPS.LASSO SL.kitchen.sink         hdPS.SL        LASSO.SL
+ 0.1260 (0.0148) 0.1400 (0.0155) 0.0880 (0.0127) 0.1080 (0.0139) 0.0920 (0.0129)
+   hdPS.LASSO.SL TMLE.kitchen.sink       hdPS.TMLE      LASSO.TMLE hdPS.LASSO.TMLE
+ 0.1080 (0.0139)   0.2360 (0.0190) 0.2340 (0.0189) 0.2400 (0.0191) 0.2360 (0.0190)
+ DC.TMLE.kitchen.sink
+      0.1640 (0.0166)

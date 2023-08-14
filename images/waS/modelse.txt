@@ -1,0 +1,17 @@
+                  method   est mcse lower upper
+10                  PS.u 0.017    0 0.017 0.017
+24                  SL.u 0.017    0 0.017 0.017
+38                TMLE.u 0.016    0 0.016 0.016
+66                  hdPS 0.013    0 0.013 0.013
+94            hdPS.LASSO 0.013    0 0.013 0.013
+122              hdPS.SL 0.013    0 0.013 0.013
+150        hdPS.LASSO.SL 0.013    0 0.013 0.013
+52       PS.kitchen.sink 0.012    0 0.012 0.012
+80                 LASSO 0.012    0 0.012 0.012
+108      SL.kitchen.sink 0.012    0 0.012 0.012
+136             LASSO.SL 0.012    0 0.012 0.012
+164    TMLE.kitchen.sink 0.012    0 0.012 0.012
+178            hdPS.TMLE 0.012    0 0.012 0.013
+192           LASSO.TMLE 0.012    0 0.012 0.012
+206      hdPS.LASSO.TMLE 0.012    0 0.012 0.013
+220 DC.TMLE.kitchen.sink 0.010    0 0.010 0.010
